@@ -28,24 +28,23 @@
     </a>
     <ul class="nav-menu" role="list">
       <li><a href="index.html" class="nav-link">Home</a></li>
-      <li class="nav-dropdown">
-        <a href="about.html" class="nav-link">Academy ▾</a>
-        <div class="dropdown-menu">
-          <a href="about.html" class="dropdown-item"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 21h17"/><path d="M5.5 21V9.5A6.5 6.5 0 0 1 18.5 9.5V21"/><path d="M3.5 11h17"/><path d="M6 8.5 12 5.5l6 3"/></svg> About Us</a>
-          <a href="about.html#coaches" class="dropdown-item"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12.5V16c0 1.66 2.69 3 6 3s6-1.34 6-3v-3.5"/><path d="M22 10v6"/></svg> Our Coaches</a>
-          <a href="about.html#facilities" class="dropdown-item"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 7h.01M12 7h.01M16 7h.01M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01M16 19h.01"/></svg> Facilities</a>
-        </div>
-      </li>
+      <li><a href="home2.html" class="nav-link active">Home 2</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
       <li><a href="services.html" class="nav-link">Programs</a></li>
       <li><a href="blog.html" class="nav-link">Blog</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
     </ul>
     <div class="nav-controls">
-      <button class="control-btn theme-toggle" aria-label="Toggle theme"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
-      <button class="control-btn rtl-toggle" aria-label="Toggle RTL">عر</button>
-      <a href="login.html" class="btn btn-outline btn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Login</a>
-      <a href="signup.html" class="btn btn-primary btn-sm">Join Now</a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <button class="control-btn theme-toggle" aria-label="Toggle theme" title="Toggle theme"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button class="control-btn rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL">RTL</button>
+      <div class="profile-dropdown">
+        <button class="control-btn profile-btn" aria-label="Account" title="Account"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
+        <div class="dropdown-menu profile-menu">
+          <a href="login.html" class="dropdown-item"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Login</a>
+          <a href="signup.html" class="dropdown-item"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg> Signup</a>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
@@ -61,6 +60,15 @@
   <a href="dashboard.html" class="mobile-nav-link"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20V10M18 20V4M6 20v-4"/></svg> Dashboard</a>
   <a href="login.html" class="mobile-nav-link"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Login</a>
   <a href="signup.html" class="mobile-nav-link"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg> Sign Up</a>
+  <div class="mobile-nav-divider"></div>
+  <a href="privacy-policy.html" class="mobile-nav-link"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Privacy Policy</a>
+  <a href="terms.html" class="mobile-nav-link"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6M9 16h6"/></svg> Terms & Conditions</a>
+  <a href="sitemap.html" class="mobile-nav-link"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 3 3 5v16l6-2 6 2 6-2V3l-6 2-6-2z"/><path d="M9 3v16M15 5v16"/></svg> Sitemap</a>
+  <div class="mobile-nav-divider"></div>
+  <div style="display:flex;gap:12px;padding:12px 16px;">
+    <button class="control-btn theme-toggle" style="flex:1;width:auto;border-radius:8px;padding:10px;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg> Theme</button>
+    <button class="control-btn rtl-toggle" style="flex:1;width:auto;border-radius:8px;padding:10px;">RTL</button>
+  </div>
 </nav>
 
 <!-- ═══ SPLIT HERO ═══ -->

@@ -68,6 +68,25 @@ function initNavbar() {
     overlay?.addEventListener('click', toggleMenu);
   }
 
+  // Profile dropdown toggle
+  const profileDropdown = $('.profile-dropdown');
+  const profileBtn = $('.profile-btn');
+  if (profileDropdown && profileBtn) {
+    profileBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      profileDropdown.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!profileDropdown.contains(e.target)) profileDropdown.classList.remove('open');
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') profileDropdown.classList.remove('open');
+    });
+    profileDropdown.querySelectorAll('.dropdown-item').forEach(item => {
+      item.addEventListener('click', () => profileDropdown.classList.remove('open'));
+    });
+  }
+
   // Active link
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   $$('.nav-link, .mobile-nav-link').forEach(link => {
@@ -124,7 +143,7 @@ function initRTL() {
   });
 
   function updateRTLLabel(btn, dir) {
-    btn.textContent = dir === 'ltr' ? 'عر' : 'EN';
+    btn.textContent = dir === 'ltr' ? 'RTL' : 'LTR';
     btn.title = dir === 'ltr' ? 'Switch to RTL' : 'Switch to LTR';
     btn.setAttribute('aria-label', btn.title);
   }

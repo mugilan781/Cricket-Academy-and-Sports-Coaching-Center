@@ -580,7 +580,9 @@ textarea.form-control {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  gap: clamp(8px, 2vw, 24px);
+  width: var(--container);
+  margin-inline: auto;
 }
 
 .logo {
@@ -646,16 +648,19 @@ textarea.form-control {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: clamp(6px, 1.5vw, 24px);
+  gap: clamp(4px, 1vw, 18px);
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .nav-link {
   font-family: var(--font-display);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--text-secondary);
   padding: 6px 4px;
+  white-space: nowrap;
   position: relative;
   transition: color var(--t-fast);
 }
@@ -736,6 +741,7 @@ textarea.form-control {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 .control-btn {
@@ -757,6 +763,53 @@ textarea.form-control {
   background: rgba(201,162,39,0.12);
   color: var(--gold);
   border-color: var(--border-gold);
+}
+
+.control-btn.rtl-toggle {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Profile Dropdown ─────────────────────────────── */
+.profile-dropdown { position: relative; }
+
+.profile-dropdown .dropdown-menu {
+  left: auto;
+  right: 0;
+  transform: translateY(-8px);
+  min-width: 170px;
+}
+
+.profile-dropdown .dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+
+[dir="rtl"] .profile-dropdown .dropdown-menu { left: 0; right: auto; }
+
+.profile-dropdown:hover .dropdown-menu,
+.profile-dropdown:focus-within .dropdown-menu,
+.profile-dropdown.open .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.profile-dropdown .dropdown-menu .dropdown-item {
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 .hamburger {
