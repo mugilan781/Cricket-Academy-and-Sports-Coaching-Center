@@ -28,16 +28,16 @@
   --navy-light:  #0D2641;
   --navy-mid:    #112E4B;
   --emerald:     #087F5B;
-  --emerald-light:#0A9B6E;
+  --emerald-light:#12C489;
   --emerald-dark: #065C42;
   --gold:        #C9A227;
   --gold-light:  #D4B347;
   --gold-dark:   #A8851E;
   --white:       #F7F8F5;
   --slate:       #475569;
-  --slate-light: #64748B;
+  --slate-light: #93A4B8;
   --crimson:     #B42318;
-  --crimson-light:#C9291C;
+  --crimson-light:#FF6B61;
 
   /* Semantic */
   --bg-primary:    var(--navy);
@@ -45,7 +45,7 @@
   --bg-card:       var(--navy-mid);
   --text-primary:  var(--white);
   --text-secondary:#A8B5C8;
-  --text-muted:    #6B7A8D;
+  --text-muted:    #8596AB;
   --border-color:  rgba(255,255,255,0.08);
   --border-gold:   rgba(201,162,39,0.3);
   --shadow-card:   0 8px 32px rgba(0,0,0,0.4);
@@ -87,12 +87,80 @@
   --text-primary:  #081A2B;
   --text-secondary:#2D4A6B;
   --text-muted:    #475569;
+  --gold:          #745C18;
+  --gold-light:    #8A6D1D;
+  --gold-dark:     #5C4A14;
+  --emerald-light: #06634A;
+  --crimson-light: #9E1D14;
+  --slate-light:   #475569;
   --border-color:  rgba(8,26,43,0.1);
   --border-gold:   rgba(201,162,39,0.4);
   --shadow-card:   0 8px 32px rgba(8,26,43,0.12);
   --shadow-gold:   0 4px 24px rgba(201,162,39,0.15);
   --shadow-emerald:0 4px 24px rgba(8,127,91,0.15);
 }
+
+/* Light mode: navy text on gold surfaces must become white (gold deepens for text contrast) */
+[data-theme="light"] .btn-primary,
+[data-theme="light"] .btn-outline:hover,
+[data-theme="light"] .logo-mark,
+[data-theme="light"] .back-to-top,
+[data-theme="light"] .pricing-featured-badge,
+[data-theme="light"] .experience-badge,
+[data-theme="light"] .tab-btn.active,
+[data-theme="light"] .slider-btn:hover,
+[data-theme="light"] .social-btn:hover { color: var(--white); }
+
+[data-theme="light"] .highlight-emerald {
+  background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="light"] .page-hero {
+  background: linear-gradient(135deg, #F0F4F8 0%, #E2EAF0 100%);
+}
+
+/* Light mode: components that stay dark keep the dark-theme palette */
+[data-theme="light"] .footer,
+[data-theme="light"] .page-transition,
+[data-theme="light"] .hero,
+[data-theme="light"] .hero-slider,
+[data-theme="light"] .coach-card,
+[data-theme="light"] .facility-card,
+[data-theme="light"] .service-hero-card,
+[data-theme="light"] .blog-featured,
+[data-theme="light"] .dropdown-menu,
+[data-theme="light"] .mobile-nav,
+[data-theme="light"] .achievements-section,
+[data-theme="light"] .maintenance-page,
+[data-theme="light"] .gallery-item,
+[data-theme="light"] .auth-visual { --gold: #C9A227; }
+
+[data-theme="light"] .footer,
+[data-theme="light"] .page-transition,
+[data-theme="light"] .blog-featured,
+[data-theme="light"] .service-hero-card,
+[data-theme="light"] .maintenance-page,
+[data-theme="light"] .achievements-section { --text-primary: #F7F8F5; }
+
+[data-theme="light"] .footer,
+[data-theme="light"] .facility-card,
+[data-theme="light"] .service-hero-card,
+[data-theme="light"] .coach-card,
+[data-theme="light"] .blog-featured,
+[data-theme="light"] .dropdown-menu,
+[data-theme="light"] .mobile-nav,
+[data-theme="light"] .achievements-section,
+[data-theme="light"] .maintenance-page { --text-secondary: #A8B5C8; }
+
+[data-theme="light"] .footer,
+[data-theme="light"] .blog-featured,
+[data-theme="light"] .maintenance-page { --text-muted: #8596AB; }
+
+[data-theme="light"] .auth-visual,
+[data-theme="light"] .maintenance-page { --emerald-light: #12C489; }
 
 /* ── Reset ─────────────────────────────────────────── */
 *, *::before, *::after {
@@ -253,7 +321,7 @@ p {
 }
 
 .highlight-emerald {
-  background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+  background: linear-gradient(135deg, var(--emerald-light), #2FD8A6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1514,7 +1582,7 @@ textarea.form-control {
   flex-wrap: wrap;
 }
 
-.breadcrumb-sep { color: var(--gold); opacity: 0.5; }
+.breadcrumb-sep { color: var(--gold); }
 .breadcrumb a { color: var(--text-muted); }
 .breadcrumb a:hover { color: var(--gold); }
 .breadcrumb .current { color: var(--gold); font-weight: 600; }

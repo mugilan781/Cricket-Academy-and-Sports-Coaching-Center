@@ -129,7 +129,7 @@
   font-family: var(--font-display);
   font-size: 0.8rem;
   font-weight: 600;
-  color: rgba(247,248,245,0.5);
+  color: rgba(247,248,245,0.75);
 }
 
 .hero-slide-count span { color: var(--gold); }
@@ -151,7 +151,7 @@
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(247,248,245,0.4);
+  color: rgba(247,248,245,0.65);
 }
 
 .scroll-line {
@@ -277,14 +277,14 @@
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(247,248,245,0.85);
+  color: var(--white);
 }
 
 .marquee-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: rgba(247,248,245,0.4);
+  background: rgba(247,248,245,0.5);
 }
 
 @keyframes marquee {
@@ -394,10 +394,13 @@
 
 /* Trial CTA Section */
 .trial-section {
-  background: linear-gradient(135deg, var(--emerald-dark), var(--emerald));
+  background: linear-gradient(135deg, var(--emerald-dark), #05543C);
   position: relative;
   overflow: hidden;
 }
+
+.trial-section { --crimson-light: #FF8B84; }
+.trial-section .form-control::placeholder { color: rgba(247,248,245,0.55); }
 
 .trial-section::before {
   content: '';
@@ -476,7 +479,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .value-item {
@@ -1426,6 +1429,8 @@
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-16px); }
 }
+
+.maintenance-page .form-control::placeholder { color: rgba(247,248,245,0.6); }
 
 /* ─── MAINTENANCE PAGE ──────────────────────────── */
 
