@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Join EliteStrike Cricket Academy — Apply for admission to our elite cricket training programs for all age groups." />
+  <title>Join EliteStrike — Cricket Academy Signup</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%230D2641'/><path d='M42 48 70 20' stroke='%23C9A227' stroke-width='9' stroke-linecap='round' fill='none'/><path d='M30 60l12-12 14 14-12 12z' fill='%23C9A227'/><circle cx='71' cy='71' r='11' fill='%23F7F8F5'/><path d='M62.5 78.5a14.5 14.5 0 0 1 13.8-13.6' stroke='%23C9A227' stroke-width='3' fill='none' stroke-linecap='round'/></svg>" />
+</head>
+<body>
+<div id="pageTransition" class="page-transition active"><div class="page-transition-logo"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 13.5 21 3.5"/><path d="M9 17l3.5-3.5 4 4L13 21z"/><circle cx="18.5" cy="18.5" r="3"/><path d="M16.2 20.4a4.5 4.5 0 0 1 4.2-3.6"/></svg> EliteStrike</div></div>
+
+<div class="auth-page">
+  <!-- Visual -->
+  <div class="auth-visual">
+    <img src="https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?w=1200&q=90&fit=crop" alt="Cricket training" loading="eager" />
+    <div class="auth-visual-content">
+      <div class="section-label" style="margin-bottom:12px;">Free Trial Available</div>
+      <h2 style="color:var(--white);font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:12px;">Join 2,500+ Champions<br/>Who Trained Here</h2>
+      <p style="color:rgba(247,248,245,0.7);font-size:0.9rem;max-width:42ch;">Start with a free trial session. No commitment required. Get assessed by our international-standard coaches.</p>
+
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:28px;">
+        <div style="display:flex;align-items:center;gap:12px;color:rgba(247,248,245,0.85);font-size:0.88rem;"><span style="color:var(--emerald-light);font-size:1.2rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg></span> Free skill assessment session</div>
+        <div style="display:flex;align-items:center;gap:12px;color:rgba(247,248,245,0.85);font-size:0.88rem;"><span style="color:var(--emerald-light);font-size:1.2rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg></span> Personalized program recommendation</div>
+        <div style="display:flex;align-items:center;gap:12px;color:rgba(247,248,245,0.85);font-size:0.88rem;"><span style="color:var(--emerald-light);font-size:1.2rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg></span> Meet your prospective coaches</div>
+        <div style="display:flex;align-items:center;gap:12px;color:rgba(247,248,245,0.85);font-size:0.88rem;"><span style="color:var(--emerald-light);font-size:1.2rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg></span> No credit card or fees required</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="auth-form-side">
+    <div class="nav-controls" style="justify-content:flex-end;margin-bottom:20px;">
+      <button class="control-btn theme-toggle" aria-label="Toggle theme"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button class="control-btn rtl-toggle" aria-label="Toggle RTL">عر</button>
+    </div>
+
+    <a href="index.html" class="auth-logo-link">
+      <div class="logo-mark">ES</div>
+      <div class="logo-text"><span class="logo-name">EliteStrike</span><span class="logo-tagline">Cricket Academy</span></div>
+    </a>
+
+    <h2 class="auth-heading">Apply to EliteStrike <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 13.5 21 3.5"/><path d="M9 17l3.5-3.5 4 4L13 21z"/><circle cx="18.5" cy="18.5" r="3"/><path d="M16.2 20.4a4.5 4.5 0 0 1 4.2-3.6"/></svg></h2>
+    <p class="auth-sub">Fill in your details and we'll get back within 24 hours with your trial booking confirmation.</p>
+
+    <form data-validate id="signupForm">
+      <div class="grid-2" style="gap:14px;">
+        <div class="form-group">
+          <label class="form-label" for="signupFirst">First Name *</label>
+          <input type="text" id="signupFirst" class="form-control" placeholder="First name" required minlength="2" />
+          <div id="signupFirstError" class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="signupLast">Last Name *</label>
+          <input type="text" id="signupLast" class="form-control" placeholder="Last name" required minlength="2" />
+          <div id="signupLastError" class="form-error"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="signupEmail">Email Address *</label>
+        <input type="email" id="signupEmail" class="form-control" placeholder="your@email.com" required />
+        <div id="signupEmailError" class="form-error"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="signupPhone">Phone Number *</label>
+        <input type="tel" id="signupPhone" class="form-control" placeholder="+91 98765 43210" required />
+        <div id="signupPhoneError" class="form-error"></div>
+      </div>
+
+      <div class="grid-2" style="gap:14px;">
+        <div class="form-group">
+          <label class="form-label" for="signupAge">Player's Age *</label>
+          <input type="number" id="signupAge" class="form-control" placeholder="e.g. 15" min="6" max="40" required />
+          <div id="signupAgeError" class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="signupRole">Playing Role *</label>
+          <select id="signupRole" class="form-control" required>
+            <option value="">Select role</option>
+            <option>Batsman</option>
+            <option>Bowler</option>
+            <option>All-Rounder</option>
+            <option>Wicket-Keeper</option>
+          </select>
+          <div id="signupRoleError" class="form-error"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="signupProgram">Interested Program *</label>
+        <select id="signupProgram" class="form-control" required>
+          <option value="">Choose a program</option>
+          <option>Junior Spark (Under 12)</option>
+          <option>Rising Stars (Under 16)</option>
+          <option>Elite Pathway (Under 19)</option>
+          <option>Pro Academy (Senior)</option>
+          <option>Not sure — need assessment</option>
+        </select>
+        <div id="signupProgramError" class="form-error"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="signupPassword">Create Password *</label>
+        <div style="position:relative;">
+          <input type="password" id="signupPassword" class="form-control" placeholder="Min 8 characters" required minlength="8" style="padding-right:48px;" />
+          <button type="button" onclick="togglePwd('signupPassword', this)" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:0.9rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        </div>
+        <div id="signupPasswordError" class="form-error"></div>
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <label class="checkbox-label">
+          <input type="checkbox" required />
+          I agree to the <a href="terms.html" style="color:var(--gold);">Terms & Conditions</a> and <a href="privacy-policy.html" style="color:var(--gold);">Privacy Policy</a>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg w-full" style="justify-content:center;margin-bottom:16px;">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 13.5 21 3.5"/><path d="M9 17l3.5-3.5 4 4L13 21z"/><circle cx="18.5" cy="18.5" r="3"/><path d="M16.2 20.4a4.5 4.5 0 0 1 4.2-3.6"/></svg> Submit Application
+      </button>
+
+      <p style="text-align:center;color:var(--text-muted);font-size:0.88rem;">
+        Already a student? <a href="login.html" style="color:var(--gold);font-weight:700;">Sign In →</a>
+      </p>
+    </form>
+
+    <div style="margin-top:auto;padding-top:24px;display:flex;gap:16px;justify-content:center;font-size:0.78rem;color:var(--text-muted);">
+      <a href="privacy-policy.html" style="color:var(--text-muted);">Privacy</a>
+      <a href="terms.html" style="color:var(--text-muted);">Terms</a>
+      <a href="contact.html" style="color:var(--text-muted);">Support</a>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+<script src="js/main.js"></script>
+<script>
+function togglePwd(id, btn) {
+  const input = document.getElementById(id);
+  input.type = input.type === 'password' ? 'text' : 'password';
+  btn.innerHTML = input.type === 'password' ? '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>' : '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68M6.61 6.61A13.53 13.53 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61M2 2l20 20"/></svg>';
+}
+document.getElementById('signupForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const inputs = this.querySelectorAll('input[required], select[required]');
+  let valid = true;
+  inputs.forEach(i => { if (!i.value) valid = false; });
+  if (valid) {
+    showToast('<svg class="ic ic-fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/><path d="M5 15l.9 2.1L8 18l-2.1.9L5 21l-.9-2.1L2 18l2.1-.9z"/></svg> Application submitted! We\'ll contact you within 24 hours.', 'success', 6000);
+    setTimeout(() => window.location.href = 'login.html', 2000);
+  } else {
+    showToast('Please fill all required fields.', 'error');
+  }
+});
+</script>
+</body>
+</html>
