@@ -482,6 +482,35 @@ function initParallax() {
   }, { passive: true });
 }
 
+/* ── Dashboard Sidebar Drawer ───────────────────────── */
+function initDashboardSidebar() {
+  const btn = $('#dashMenuBtn');
+  const sidebar = $('.dashboard-sidebar');
+  const overlay = $('#dashOverlay');
+  if (!btn || !sidebar) return;
+
+  const close = () => {
+    sidebar.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    overlay?.classList.remove('show');
+    document.body.style.overflow = '';
+  };
+
+  const toggle = () => {
+    const isOpen = sidebar.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+    overlay?.classList.toggle('show', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  };
+
+  btn.addEventListener('click', toggle);
+  overlay?.addEventListener('click', close);
+  sidebar.querySelectorAll('.sidebar-link').forEach(link => link.addEventListener('click', close));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+}
+
 /* ── Footer Newsletter ─────────────────────────────── */
 function initFooterNewsletter() {
   const form = document.getElementById('footerNewsletter');
@@ -520,4 +549,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
   initPageTransitions();
   initFooterNewsletter();
+  initDashboardSidebar();
 });

@@ -1235,20 +1235,290 @@
   flex-shrink: 0;
 }
 
+/* Dashboard drawer toggle & topbar — shown on mobile & tablet */
+.dash-topbar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--r-lg);
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+[data-theme="light"] .dash-topbar {
+  background: #FFFFFF;
+  border-color: rgba(8,26,43,0.08);
+  box-shadow: 0 4px 20px rgba(8,26,43,0.04);
+}
+
+.dash-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: rgba(201,162,39,0.1);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--r-full);
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--t-fast);
+  flex-shrink: 0;
+}
+
+[data-theme="light"] .dash-menu-btn {
+  background: rgba(201,162,39,0.12);
+  color: var(--gold-dark);
+}
+
+.dash-menu-btn:hover {
+  background: var(--gold);
+  color: var(--navy);
+  transform: translateY(-1px);
+}
+
+[data-theme="light"] .dash-menu-btn:hover {
+  color: var(--white);
+}
+
+.dash-hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 16px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.dash-hamburger-icon span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: var(--r-full);
+  background: currentColor;
+  transition: all var(--t-normal);
+}
+
+.dash-menu-btn.open .dash-hamburger-icon span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.dash-menu-btn.open .dash-hamburger-icon span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.dash-menu-btn.open .dash-hamburger-icon span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.dash-menu-label {
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.dash-topbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dash-student-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(201,162,39,0.1);
+  padding: 4px 10px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border-gold);
+}
+
+.dash-topbar-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold);
+  flex-shrink: 0;
+}
+
+/* ── Tablet (≤1024px): sidebar becomes a drawer ── */
 @media (max-width: 1024px) {
-  .dashboard-layout { grid-template-columns: 1fr; }
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+    margin-top: var(--navbar-h);
+    min-height: calc(100vh - var(--navbar-h));
+  }
+
+  .dashboard-main {
+    padding: clamp(20px, 3vw, 32px);
+    overflow-y: visible;
+  }
+
+  .dash-topbar {
+    display: flex;
+  }
+
+  /* Drawer sits above navbar + overlay so it never gets clipped */
+  #dashOverlay {
+    z-index: 1001;
+  }
+
   .dashboard-sidebar {
-    position: relative;
+    position: fixed;
     top: 0;
-    height: auto;
-    flex-direction: row;
-    flex-wrap: wrap;
-    overflow-x: auto;
+    left: calc(0px - min(290px, 86vw));
+    width: min(290px, 86vw);
+    height: 100vh;
+    z-index: 1002;
+    padding: 32px 20px;
+    overflow-y: auto;
+    border-right: 1px solid var(--border-color);
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    transition: left var(--t-slow);
+    background: var(--bg-card);
+  }
+
+  .dashboard-sidebar.open {
+    left: 0;
+  }
+
+  [dir="rtl"] .dashboard-sidebar {
+    left: auto;
+    right: calc(0px - min(290px, 86vw));
+    border-right: none;
+    border-left: 1px solid var(--border-color);
+  }
+
+  [dir="rtl"] .dashboard-sidebar.open {
+    right: 0;
+  }
+}
+
+/* ── Phone (≤768px): tighten spacing, stack & align ── */
+@media (max-width: 768px) {
+  .dashboard-main {
+    padding: 16px 14px 40px;
+  }
+
+  .dash-topbar {
+    margin-bottom: 20px;
+    padding: 10px 14px;
+    border-radius: var(--r-md);
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 20px;
+    gap: 14px;
+  }
+
+  .dashboard-greeting {
+    font-size: clamp(1.2rem, 5vw, 1.45rem);
+    line-height: 1.25;
+  }
+
+  .greeting-sub {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+
+  .dashboard-header > .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+  }
+
+  .dash-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .dash-stat-card {
+    padding: 16px 14px;
+  }
+
+  .dash-stat-icon {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+  }
+
+  .dash-stat-val {
+    font-size: 1.35rem;
+  }
+
+  .dash-stat-label {
+    font-size: 0.66rem;
+  }
+
+  /* Normalize inline card paddings */
+  .dash-section .card:not([style*="padding:0"]) {
+    padding: 18px 14px !important;
+  }
+
+  .dash-section .card-body {
+    padding: 18px 14px !important;
+  }
+
+  .dash-section .announcement-item {
+    padding: 14px !important;
+    gap: 12px;
+  }
+
+  .dash-section .announcement-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .match-card {
     padding: 16px;
+  }
+
+  /* Schedule table scrolls horizontally cleanly */
+  .schedule-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .schedule-table {
+    min-width: 580px;
+  }
+
+  .schedule-table th, .schedule-table td {
+    padding: 12px 14px;
+  }
+}
+
+/* ── Small phones (≤480px) ── */
+@media (max-width: 480px) {
+  .dashboard-sidebar {
+    padding: 24px 16px 20px;
+  }
+
+  .dash-topbar {
+    padding: 8px 12px;
+  }
+
+  .dash-menu-btn {
+    padding: 6px 12px;
+    font-size: 0.76rem;
     gap: 8px;
   }
-  .sidebar-profile, .sidebar-section-title { display: none; }
-  .sidebar-link { white-space: nowrap; }
+
+  .dash-student-badge {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .dash-stats {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ─── LOGIN / SIGNUP ─────────────────────────────── */
@@ -2562,24 +2832,6 @@ body:has(.hero-slider) .navbar:not(.scrolled) {
 }
 
 /* ── dashboard.html ── */
-@media (max-width: 1024px) {
-  /* Restore the student chip inside the sidebar rail */
-  .sidebar-profile {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6px 12px;
-    width: 100%;
-    padding: 14px 16px;
-    margin-bottom: 8px;
-    text-align: left;
-  }
-  .sidebar-profile .sidebar-avatar { width: 42px; height: 42px; margin: 0; }
-  .sidebar-profile .sidebar-name { font-size: 0.92rem; }
-  .sidebar-profile .sidebar-role { font-size: 0.72rem; margin-top: 2px; }
-}
-
 @media (max-width: 768px) {
   .schedule-wrap { -webkit-overflow-scrolling: touch; }
 }

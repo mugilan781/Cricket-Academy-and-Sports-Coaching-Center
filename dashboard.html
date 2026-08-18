@@ -12,6 +12,7 @@
 <body>
 <div id="pageTransition" class="page-transition active"><div class="page-transition-logo"><img class="pt-logo-img" src="images/logo.png" alt="EliteStrike" /> EliteStrike</div></div>
 <div class="overlay" id="overlay"></div>
+<div class="overlay" id="dashOverlay"></div>
 
 <nav class="navbar" role="navigation" aria-label="Main navigation">
   <div class="container navbar-inner">
@@ -53,7 +54,7 @@
   <!-- SIDEBAR -->
   <aside class="dashboard-sidebar" role="navigation" aria-label="Dashboard navigation">
     <div class="sidebar-profile">
-      <img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?w=160&q=80&fit=crop&crop=faces" alt="Aryan Mehta" class="sidebar-avatar" loading="lazy" />
+      <img src="images/gen_about_coach.jpg" alt="Aryan Mehta" class="sidebar-avatar" loading="lazy" />
       <div class="sidebar-name">Aryan Mehta</div>
       <div class="sidebar-role"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 13.5 21 3.5"/><path d="M9 17l3.5-3.5 4 4L13 21z"/><circle cx="18.5" cy="18.5" r="3"/><path d="M16.2 20.4a4.5 4.5 0 0 1 4.2-3.6"/></svg> Elite Pathway (U-19)</div>
       <div style="margin-top:10px;"><span class="badge badge-gold">Level 3 — Advanced</span></div>
@@ -78,8 +79,22 @@
     <a href="login.html" class="sidebar-link" style="color:var(--crimson-light);"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg> Logout</a>
   </aside>
 
-  <!-- MAIN CONTENT -->
+<!-- MAIN CONTENT -->
   <main class="dashboard-main" id="dashMain">
+
+    <!-- DASHBOARD TOP BAR (Mobile & Tablet) -->
+    <div class="dash-topbar">
+      <button class="dash-menu-btn" id="dashMenuBtn" aria-label="Toggle dashboard menu" aria-expanded="false" title="Dashboard menu">
+        <span class="dash-hamburger-icon" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span class="dash-menu-label">Dashboard Menu</span>
+      </button>
+      <div class="dash-topbar-profile">
+        <span class="dash-student-badge"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 13.5 21 3.5"/><path d="M9 17l3.5-3.5 4 4L13 21z"/><circle cx="18.5" cy="18.5" r="3"/><path d="M16.2 20.4a4.5 4.5 0 0 1 4.2-3.6"/></svg> U-19 Elite</span>
+        <img src="images/gen_about_coach.jpg" alt="Aryan Mehta" class="dash-topbar-avatar" loading="lazy" />
+      </div>
+    </div>
 
     <!-- ── OVERVIEW ─────────────────────────────── -->
     <div class="dash-section active" id="section-overview">
@@ -174,7 +189,7 @@
         </div>
         <div class="card-body">
           <div style="display:flex;gap:14px;align-items:flex-start;">
-            <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=80&q=70&fit=crop&crop=faces" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border-gold);flex-shrink:0;" alt="Coach" loading="lazy" />
+            <img src="images/gen_coach_arjun.jpg" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border-gold);flex-shrink:0;" alt="Coach Arjun" loading="lazy" />
             <div style="flex:1;">
               <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;">
                 <span style="font-family:var(--font-display);font-weight:700;font-size:0.9rem;">Coach Arjun Sharma</span>
@@ -348,7 +363,7 @@
       <div style="display:flex;flex-direction:column;gap:16px;">
         <div class="card" style="padding:24px;">
           <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;">
-            <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=80&q=70&fit=crop&crop=faces" style="width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid var(--border-gold);" alt="Coach Arjun" loading="lazy" />
+            <img src="images/gen_coach_arjun.jpg" style="width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid var(--border-gold);" alt="Coach Arjun" loading="lazy" />
             <div style="flex:1;">
               <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
                 <span style="font-family:var(--font-display);font-weight:700;">Coach Arjun Sharma</span>
@@ -367,7 +382,7 @@
 
         <div class="card" style="padding:24px;">
           <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;">
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=70&fit=crop&crop=faces" style="width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid var(--border-gold);" alt="Coach Sunil" loading="lazy" />
+            <img src="images/gen_coach_sunil.jpg" style="width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid var(--border-gold);" alt="Coach Sunil" loading="lazy" />
             <div style="flex:1;">
               <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
                 <span style="font-family:var(--font-display);font-weight:700;">Coach Sunil Kumar</span>
@@ -502,7 +517,7 @@
 
       <div class="grid-2" style="gap:20px;align-items:start;">
         <div class="card" style="padding:32px;text-align:center;">
-          <img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?w=300&q=80&fit=crop&crop=faces" style="width:100px;height:100px;border-radius:50%;object-fit:cover;border:4px solid var(--gold);margin:0 auto 16px;" alt="Profile Photo" loading="lazy" />
+          <img src="images/gen_about_coach.jpg" style="width:100px;height:100px;border-radius:50%;object-fit:cover;border:4px solid var(--gold);margin:0 auto 16px;" alt="Profile Photo" loading="lazy" />
           <h3 style="margin-bottom:4px;">Aryan Mehta</h3>
           <div style="color:var(--gold);font-size:0.85rem;font-weight:600;margin-bottom:16px;">Elite Pathway — U-19 Program</div>
           <div class="badge badge-gold" style="margin-bottom:20px;">Level 3 — Advanced Batsman</div>
@@ -557,12 +572,19 @@
 // Dashboard navigation
 function showSection(id, clickedEl) {
   document.querySelectorAll('.dash-section').forEach(s => s.classList.remove('active'));
-  document.getElementById('section-' + id).classList.add('active');
+  const targetSection = document.getElementById('section-' + id);
+  if (targetSection) targetSection.classList.add('active');
   document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
   if (clickedEl) clickedEl.classList.add('active');
+  
+  // Smooth scroll to top of content on mobile
+  if (window.innerWidth <= 1024) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   // Re-run progress bars and counters for new section
-  initProgressBars && initProgressBars();
-  initCounters && initCounters();
+  if (typeof initProgressBars === 'function') initProgressBars();
+  if (typeof initCounters === 'function') initCounters();
 }
 
 // Re-expose functions for dashboard
