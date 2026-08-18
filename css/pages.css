@@ -1966,3 +1966,13 @@ body:has(.hero-slider) .navbar:not(.scrolled) {
 /* About faculty: straight left-edge alignment for overlay text + icon row */
 .coach-card .coach-overlay { align-items: flex-start; text-align: start; }
 .coach-card .coach-socials { justify-content: flex-start; }
+
+/* Expert Faculty: uniform, straight overlay stack (badge/name/role/bio/icons share one clean column) */
+.coach-card .coach-overlay {
+  align-items: flex-start;
+  text-align: start;
+}
+.coach-card .badge { margin-bottom: 10px; }
+.coach-card .coach-name { margin-bottom: 6px; }
+.coach-card .coach-role { margin-bottom: 12px; }
+.coach-card .coach-bio { margin-bottom: 0; }
