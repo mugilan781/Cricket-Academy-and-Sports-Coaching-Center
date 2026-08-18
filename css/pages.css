@@ -1666,13 +1666,6 @@
    HOME — PREMIUM REDESIGN (stats band, alignment, advantage cards)
 ═══════════════════════════════════════════════ */
 
-[data-theme="light"] body:has(.hero-slider) .navbar:not(.scrolled) {
-  background: linear-gradient(180deg, rgba(8,26,43,0.55), transparent);
-  --gold: #C9A227;
-  --text-primary: #F7F8F5;
-  --text-secondary: rgba(247,248,245,0.85);
-  --border-color: rgba(255,255,255,0.16);
-}
 
 /* Stats band */
 .stats-section { padding-block: clamp(56px, 6vw, 96px); }
@@ -1819,10 +1812,18 @@
   background: linear-gradient(180deg, #E6EEF5 0%, #E2EAF0 50%, #DCE6EE 100%);
 }
 
-/* Navbar visibility in dark mode (un-scrolled, over hero) */
-[data-theme="dark"] .navbar:not(.scrolled) {
-  background: linear-gradient(180deg, rgba(8,26,43,0.78), rgba(8,26,43,0.3) 65%, transparent);
+/* Filled navbar at top — never transparent */
+.navbar:not(.scrolled) {
+  background: rgba(8,26,43,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.25);
+}
+[data-theme="light"] .navbar:not(.scrolled) {
+  background: rgba(240,244,248,0.95);
+  border-bottom: 1px solid rgba(8,26,43,0.08);
+  box-shadow: 0 4px 30px rgba(8,26,43,0.08);
 }
 
 /* Coach cards: badge/name/role visible at rest (bottom gradient); full dark overlay on hover */
@@ -1881,3 +1882,47 @@
   flex: 1 0 auto;
 }
 .blog-card .blog-read-more { margin-top: auto; }
+
+/* ═══════════════════════════════════════════════
+   HOME 2 — FIX BATCH 2 (navbar, hero layout, card contrast, blog spacing)
+═══════════════════════════════════════════════ */
+
+/* Hero: keep contents inside the layout, align to page container */
+.hero-split > * { min-width: 0; }
+.hero-split-content {
+  padding: calc(var(--navbar-h) + 24px) clamp(32px, 5vw, 64px) 48px;
+}
+@media (max-height: 760px) {
+  .hero-split-content { padding-top: calc(var(--navbar-h) + 16px); padding-bottom: 32px; }
+  .hero-split-content > h1 { margin-bottom: 14px !important; }
+  .hero-split-content > p { margin-bottom: 18px !important; }
+}
+
+/* Training Disciplines: guaranteed content visibility on any image */
+.service-hero-card .badge-gold { color: #E9C766; }
+.service-hero-card .badge-crimson { color: #FF8B84; }
+.service-hero-card .badge-emerald { color: #12C489; }
+.service-hero-card .badge-slate { color: #CBD5E1; }
+.service-hero-card::after {
+  background: linear-gradient(180deg, transparent 25%, rgba(8,26,43,0.72) 58%, rgba(6,17,30,0.98) 100%);
+}
+.service-hero-card-body h3,
+.service-hero-card-body p { text-shadow: 0 2px 14px rgba(4,14,28,0.85); }
+
+/* Match Preparation: forced readable colors (section stays dark in both themes) */
+.achievements-section .card-glass {
+  background: rgba(13,38,65,0.65);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+.achievements-section .card-glass h4 { color: #F7F8F5; }
+.achievements-section .card-glass p { color: #B8C7D6; }
+.achievements-section .card-glass svg { color: #E9C766; }
+
+/* Latest Articles: breathing room above Read More */
+.blog-card .blog-read-more {
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+/* Match Preparation: section title re-resolves color inside the dark section */
+.achievements-section .section-title { color: var(--text-primary); }
