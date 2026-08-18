@@ -854,6 +854,10 @@
   align-items: start;
 }
 
+/* The map iframe's content can force a wide min-content width on the columns,
+   breaking the layout on small screens — let the columns shrink freely. */
+.contact-grid > * { min-width: 0; }
+
 .contact-info-item {
   display: flex;
   gap: 16px;
@@ -880,6 +884,7 @@
   aspect-ratio: 16/9;
   border: 1px solid var(--border-color);
   margin-top: 32px;
+  min-width: 0;
 }
 
 .map-embed iframe {
@@ -887,10 +892,21 @@
   height: 100%;
   border: none;
   color-scheme: light;
+  display: block;
 }
 
+/* Mobile + tablet: single column so the info, map and form all get full width */
+@media (max-width: 1024px) {
+  .contact-grid { grid-template-columns: 1fr; gap: clamp(36px, 5vw, 56px); }
+  .map-embed { margin-top: 28px; }
+}
+
+/* Phones: the map needs a usable height even at 16:9 on a narrow screen */
 @media (max-width: 768px) {
-  .contact-grid { grid-template-columns: 1fr; }
+  .map-embed { aspect-ratio: auto; height: 240px; }
+  .contact-info-item { gap: 14px; }
+  .contact-info-item > div:last-child { min-width: 0; overflow-wrap: anywhere; }
+  .contact-socials { flex-wrap: wrap; }
 }
 
 /* ─── DASHBOARD ──────────────────────────────────── */
