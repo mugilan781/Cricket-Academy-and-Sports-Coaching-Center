@@ -1818,3 +1818,9 @@
 [data-theme="light"] .band-secondary {
   background: linear-gradient(180deg, #E6EEF5 0%, #E2EAF0 50%, #DCE6EE 100%);
 }
+
+/* Navbar visibility in dark mode (un-scrolled, over hero) */
+[data-theme="dark"] .navbar:not(.scrolled) {
+  background: linear-gradient(180deg, rgba(8,26,43,0.78), rgba(8,26,43,0.3) 65%, transparent);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
