@@ -1824,3 +1824,13 @@
   background: linear-gradient(180deg, rgba(8,26,43,0.78), rgba(8,26,43,0.3) 65%, transparent);
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
+
+/* Coach cards: badge/name/role visible at rest (bottom gradient); full dark overlay on hover */
+.coach-overlay {
+  background: linear-gradient(180deg, transparent 35%, rgba(8,26,43,0.85) 75%, rgba(6,17,30,0.97) 100%);
+  opacity: 1;
+  transition: background var(--t-normal);
+}
+.coach-card:hover .coach-overlay {
+  background: linear-gradient(180deg, rgba(8,26,43,0.78) 0%, rgba(6,17,30,0.97) 100%);
+}
