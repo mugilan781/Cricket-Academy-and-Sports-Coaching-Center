@@ -2423,3 +2423,46 @@ body:has(.hero-slider) .navbar:not(.scrolled) {
   .login-subtitle { margin-bottom: 26px; }
   .login-social { margin-bottom: 24px; }
 }
+
+/* ─── SIGNUP (STANDALONE) ─────────────────────────── */
+
+.signup-card .form-group { margin-bottom: 14px; }
+
+.signup-card .login-subtitle { margin-bottom: 26px; }
+
+/* Terms */
+.signup-terms {
+  text-align: start;
+  margin: 2px 0 20px;
+}
+
+.signup-terms .checkbox-label {
+  align-items: flex-start;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.signup-terms .checkbox-label input[type="checkbox"] {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.signup-terms a {
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signup-terms a:hover { text-decoration: underline; }
+
+.signup-terms .form-error { margin-top: 6px; }
+
+.signup-terms .checkbox-label input[type="checkbox"].error { accent-color: var(--crimson); }
+
+@media (max-width: 380px) {
+  .signup-card { padding: 24px 18px; }
+  .signup-card .login-brand { margin-bottom: 24px; }
+  .signup-card .login-subtitle { margin-bottom: 22px; }
+  .signup-card .form-group { margin-bottom: 12px; }
+}
