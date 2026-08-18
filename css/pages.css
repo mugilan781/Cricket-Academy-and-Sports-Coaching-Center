@@ -1683,7 +1683,6 @@
   gap: 1px;
   background: linear-gradient(135deg, rgba(201,162,39,0.45), rgba(8,127,91,0.35) 50%, rgba(201,162,39,0.2));
   border-radius: var(--r-xl);
-  box-shadow: var(--shadow-deep);
   overflow: hidden;
 }
 .stat-item {
@@ -1773,3 +1772,44 @@
 
 [data-theme="light"] .advantage-icon { box-shadow: 0 8px 20px rgba(8,26,43,0.08); }
 [data-theme="light"] .stat-icon { box-shadow: 0 8px 20px rgba(8,26,43,0.08); }
+
+/* ═══════════════════════════════════════════════
+   HOME — FIX BATCH 2 (stats edges, badge widths, section bg, contrast)
+═══════════════════════════════════════════════ */
+
+/* Stats panel: complete rounded edges, no shadow */
+.stats-panel {
+  overflow: hidden;
+  border: 1px solid rgba(201,162,39,0.35);
+}
+.stat-item:hover {
+  transform: none;
+  box-shadow: inset 0 0 0 1px rgba(201,162,39,0.28);
+}
+
+/* Program card age badge: content width, not stretched */
+.program-card .age-badge { align-self: flex-start; }
+
+/* Alternating section background */
+.advantages-section { background: var(--bg-secondary); }
+
+/* Coach overlay: badge + hover text visibility (card is always dark) */
+.coach-card { --emerald-light: #12C489; --crimson-light: #FF8B84; --slate-light: #CBD5E1; }
+.coach-card .badge {
+  background: rgba(8,26,43,0.5);
+  backdrop-filter: blur(4px);
+}
+.coach-card .coach-bio { color: rgba(247,248,245,0.85); }
+.coach-social-btn { background: rgba(255,255,255,0.14); }
+
+/* Trial CTA: keep bright gold on emerald in both themes */
+.trial-section { --gold: #C9A227; --gold-light: #E9C766; }
+
+/* Hero: pin light palette — hero stays dark in both themes, so buttons/arrows stay readable */
+[data-theme="light"] .hero-slider {
+  --gold: #C9A227;
+  --gold-dark: #8A6D1D;
+  --text-primary: #F7F8F5;
+  --text-secondary: rgba(247,248,245,0.8);
+  --border-color: rgba(255,255,255,0.25);
+}
