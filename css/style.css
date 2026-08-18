@@ -836,31 +836,39 @@ textarea.form-control {
 .hamburger {
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
+  width: 38px;
+  height: 38px;
   cursor: pointer;
-  padding: 4px;
+  padding: 6px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-color);
+  border-radius: var(--r-md);
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+
+.hamburger:hover {
+  background: rgba(201,162,39,0.12);
+  border-color: var(--border-gold);
 }
 
 .hamburger span {
   display: block;
-  height: 2px;
-  border-radius: 2px;
+  width: 100%;
+  height: 2.5px;
+  border-radius: var(--r-full);
   background: var(--text-primary);
   transition: all var(--t-normal);
 }
 
-.hamburger span:nth-child(1) { width: 24px; }
-.hamburger span:nth-child(2) { width: 18px; }
-.hamburger span:nth-child(3) { width: 24px; }
-
 .hamburger.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-  width: 24px;
+  transform: translateY(3.75px) rotate(45deg);
 }
 .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .hamburger.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-  width: 24px;
+  transform: translateY(-3.75px) rotate(-45deg);
 }
 
 /* ── Mobile Nav ──────────────────────────────────────── */
