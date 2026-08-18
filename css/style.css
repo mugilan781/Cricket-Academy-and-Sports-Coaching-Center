@@ -131,7 +131,6 @@
 [data-theme="light"] .facility-card,
 [data-theme="light"] .service-hero-card,
 [data-theme="light"] .blog-featured,
-[data-theme="light"] .dropdown-menu,
 [data-theme="light"] .mobile-nav,
 [data-theme="light"] .achievements-section,
 [data-theme="light"] .maintenance-page,
@@ -150,7 +149,6 @@
 [data-theme="light"] .service-hero-card,
 [data-theme="light"] .coach-card,
 [data-theme="light"] .blog-featured,
-[data-theme="light"] .dropdown-menu,
 [data-theme="light"] .mobile-nav,
 [data-theme="light"] .achievements-section,
 [data-theme="light"] .maintenance-page { --text-secondary: #A8B5C8; }

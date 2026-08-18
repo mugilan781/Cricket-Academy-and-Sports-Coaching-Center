@@ -1832,6 +1832,15 @@ body:has(.hero-slider) .navbar:not(.scrolled) {
   --border-color: rgba(255,255,255,0.16);
 }
 
+/* Home 1 light mode: navbar text vars (for the dark gradient) must not leak into
+   the white profile dropdown — restore the light palette inside it */
+[data-theme="light"] body:has(.hero-slider) .navbar:not(.scrolled) .dropdown-menu {
+  --gold: #745C18;
+  --text-primary: #081A2B;
+  --text-secondary: #2D4A6B;
+  --border-color: rgba(8,26,43,0.1);
+}
+
 /* Coach cards: badge/name/role visible at rest (bottom gradient); full dark overlay on hover */
 .coach-overlay {
   background: linear-gradient(180deg, transparent 35%, rgba(8,26,43,0.85) 75%, rgba(6,17,30,0.97) 100%);
