@@ -73,7 +73,7 @@
 <!-- ═══ FEATURED POST ═══ -->
 <section class="section">
   <div class="container">
-    <a href="blog-details.html" class="blog-featured reveal" style="display:block;text-decoration:none;">
+    <a href="blog-details.html" class="blog-featured reveal" style="text-decoration:none;">
       <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=1400&q=90&fit=crop" alt="Featured cricket article" loading="lazy" />
       <div class="blog-featured-body">
         <div class="blog-meta" style="margin-bottom:14px;">
@@ -188,27 +188,22 @@
         </div>
       </div>
     </div>
-
-    <!-- Load More -->
-    <div style="text-align:center;margin-top:48px;" class="reveal">
-      <button onclick="showToast('Loading more articles...', 'info')" class="btn btn-outline btn-lg">Load More Articles</button>
-    </div>
   </div>
 </section>
 
 <!-- ═══ NEWSLETTER ═══ -->
 <section class="section" style="background:var(--bg-secondary);">
   <div class="container">
-    <div style="max-width:600px;margin:0 auto;text-align:center;">
+    <div class="newsletter-card reveal">
       <div class="section-label reveal" style="justify-content:center;">Newsletter</div>
       <h2 class="section-title reveal delay-1">Get Cricket <span class="highlight-gold">Tips Weekly</span></h2>
-      <p style="margin-bottom:32px;" class="reveal delay-2">Join 8,500+ cricketers receiving exclusive coaching tips, drill videos and match preparation guides every Tuesday.</p>
-      <form data-validate class="reveal delay-3" style="display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;">
-        <input type="email" id="newsletterEmail" class="form-control" placeholder="Your email address" required style="flex:1;min-width:200px;" />
+      <p style="margin-bottom:0;" class="reveal delay-2">Join 8,500+ cricketers receiving exclusive coaching tips, drill videos and match preparation guides every Tuesday.</p>
+      <form data-validate class="newsletter-form reveal delay-3">
+        <input type="email" id="newsletterEmail" class="form-control" placeholder="Your email address" required />
         <div id="newsletterEmailError" class="form-error"></div>
         <button type="submit" class="btn btn-primary">Subscribe Free →</button>
       </form>
-      <p style="font-size:0.78rem;color:var(--text-muted);margin-top:12px;" class="reveal delay-4">No spam. Unsubscribe anytime. Your data is safe with us.</p>
+      <p class="newsletter-note reveal delay-4">No spam. Unsubscribe anytime. Your data is safe with us.</p>
     </div>
   </div>
 </section>
