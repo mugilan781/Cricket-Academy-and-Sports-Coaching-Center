@@ -1834,3 +1834,50 @@
 .coach-card:hover .coach-overlay {
   background: linear-gradient(180deg, rgba(8,26,43,0.78) 0%, rgba(6,17,30,0.97) 100%);
 }
+
+/* ═══════════════════════════════════════════════
+   HOME 2 — FIXES (hero fit, badge/feather, section contrast, dropdown, blog align)
+═══════════════════════════════════════════════ */
+
+/* Hero: eyebrow fits content, remove feather edge between image & text, fit viewport */
+.hero-split { min-height: 100svh; }
+.hero-split-content {
+  padding: calc(var(--navbar-h) + 24px) clamp(32px, 5vw, 72px) 48px;
+}
+.hero-split-content .hero-eyebrow {
+  align-self: flex-start;
+  margin-bottom: 20px;
+}
+.hero-split-visual::before { display: none; }
+
+/* Training Disciplines: badge text always bright on dark image */
+.service-hero-card {
+  --emerald-light: #12C489;
+  --crimson-light: #FF8B84;
+  --slate-light: #CBD5E1;
+}
+.service-hero-card .badge {
+  background: rgba(8,26,43,0.55);
+  backdrop-filter: blur(4px);
+}
+
+/* Match Preparation: keep cards dark inside the dark section (light mode) */
+[data-theme="light"] .achievements-section .card-glass {
+  background: rgba(13,38,65,0.55);
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* Join the Academy: dropdown options readable in both themes */
+.trial-section select option {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+/* Latest Articles: straight vertical alignment across cards */
+.blog-card { display: flex; flex-direction: column; }
+.blog-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+.blog-card .blog-read-more { margin-top: auto; }
