@@ -1419,17 +1419,6 @@
   margin-bottom: 24px;
 }
 
-.error-cricket-icon {
-  font-size: 4rem;
-  margin-bottom: 24px;
-  animation: bounce-emoji 2s ease-in-out infinite;
-}
-
-@keyframes bounce-emoji {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-16px); }
-}
-
 .maintenance-page .form-control::placeholder { color: rgba(247,248,245,0.6); }
 
 /* ─── MAINTENANCE PAGE ──────────────────────────── */
@@ -1440,6 +1429,7 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy) 100%);
+  color: var(--text-primary);
   text-align: center;
   position: relative;
   overflow: hidden;

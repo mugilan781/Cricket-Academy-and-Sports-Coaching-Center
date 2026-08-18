@@ -162,6 +162,17 @@
 [data-theme="light"] .auth-visual,
 [data-theme="light"] .maintenance-page { --emerald-light: #12C489; }
 
+/* Light mode: maintenance page stays dark, so keep child surfaces on the dark palette */
+[data-theme="light"] .maintenance-page {
+  --bg-card: var(--navy-mid);
+  --border-color: rgba(255,255,255,0.08);
+}
+
+[data-theme="light"] .maintenance-page .card-glass {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.1);
+}
+
 /* ── Reset ─────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
