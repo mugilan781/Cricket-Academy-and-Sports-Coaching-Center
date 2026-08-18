@@ -886,7 +886,7 @@
   width: 100%;
   height: 100%;
   border: none;
-  filter: grayscale(80%) invert(0.1);
+  color-scheme: light;
 }
 
 @media (max-width: 768px) {
