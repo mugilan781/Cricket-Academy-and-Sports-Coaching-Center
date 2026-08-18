@@ -1807,6 +1807,13 @@ textarea.form-control {
   .btn-lg { padding: 14px 28px; font-size: 0.9rem; }
 }
 
+/* Small screens: horizontal reveal transforms push content past the viewport
+   (below-the-fold elements stay shifted right by 40px → right-side gap / sideways scroll).
+   Switch them to a vertical slide so the page never overflows horizontally. */
+@media (max-width: 800px) {
+  .reveal-left, .reveal-right { transform: translateY(24px); }
+}
+
 /* ── Scrollbar ──────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-secondary); }
