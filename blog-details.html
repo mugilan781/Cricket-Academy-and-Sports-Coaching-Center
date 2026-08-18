@@ -61,34 +61,22 @@
 </nav>
 
 <!-- ARTICLE HEADER -->
-<section style="padding-top:calc(var(--navbar-h) + 48px);padding-bottom:0;background:var(--bg-primary);">
+<section style="padding-top:calc(var(--navbar-h) + 48px);padding-bottom:clamp(48px,6vw,88px);background:var(--bg-primary);">
   <div class="container">
-    <div class="breadcrumb reveal"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span><a href="blog.html">Blog</a><span class="breadcrumb-sep">/</span><span class="current">5 Batting Drills</span></div>
+    <div class="breadcrumb reveal"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span><a href="blog.html">Blog</a><span class="breadcrumb-sep">/</span><span class="current" id="bdCrumb">5 Batting Drills</span></div>
     
     <div style="max-width:80ch;margin:0 auto;text-align:center;padding-block:48px 0;">
-      <div class="blog-meta reveal" style="justify-content:center;gap:16px;margin-bottom:20px;">
-        <span class="blog-tag">Batting</span>
-        <span class="blog-tag">Technique</span>
-        <span style="color:var(--text-muted);"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> August 10, 2025</span>
-        <span style="color:var(--text-muted);"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 8 min read</span>
-        <span style="color:var(--text-muted);"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg> 12,400 views</span>
-      </div>
-      <h1 class="reveal delay-1" style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:24px;">5 Batting Drills Every Cricketer Must Master</h1>
-      <div class="testimonial-author reveal delay-2" style="justify-content:center;margin-bottom:40px;">
-        <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=100&q=80&fit=crop&crop=faces" alt="Arjun Sharma" class="author-avatar" loading="lazy" />
-        <div>
-          <div class="author-name">Arjun Sharma</div>
-          <div class="author-role">Head Coach — Former India Test Cricketer</div>
-        </div>
-      </div>
+      <div class="blog-meta reveal" style="justify-content:center;gap:16px;margin-bottom:20px;" id="bdMeta"></div>
+      <h1 class="reveal delay-1" style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:24px;" id="bdTitle">5 Batting Drills Every Cricketer Must Master</h1>
+      <div class="testimonial-author reveal delay-2" style="justify-content:center;margin-bottom:40px;" id="bdAuthor"></div>
     </div>
   </div>
 </section>
 
 <!-- HERO IMAGE -->
-<div style="max-width:1100px;margin:0 auto;padding:0 clamp(16px,5vw,60px);margin-bottom:clamp(40px,5vw,80px);">
+<div class="article-hero" style="padding:0 clamp(16px,5vw,60px);">
   <div style="border-radius:var(--r-xl);overflow:hidden;aspect-ratio:21/9;" class="reveal">
-    <img src="https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?w=1400&q=90&fit=crop" alt="Batting drills cricket" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+    <img id="bdHero" src="https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?w=1400&q=90&fit=crop" alt="Batting drills cricket" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
   </div>
 </div>
 
@@ -96,8 +84,9 @@
 <section class="section" style="padding-top:0;">
   <div class="container">
     <div style="display:grid;grid-template-columns:1fr 320px;gap:clamp(40px,5vw,80px);align-items:start;">
+<div style="min-width:0;">
       <!-- Article Content -->
-      <article class="blog-article reveal">
+      <article class="blog-article reveal" id="bdBody">
         <p>After 25 years in professional cricket as a player and coach, I've identified the 5 drills that separate good batsmen from great ones. These aren't just exercises — they're the fundamental pillars of elite batting that I've refined through thousands of coaching sessions at EliteStrike.</p>
 
         <blockquote>"The quality of your practice determines the quality of your performance. Every drill has a purpose — know the 'why' before you pick up the bat." — Arjun Sharma</blockquote>
@@ -137,36 +126,35 @@
         <h2>How to Structure Your Practice</h2>
         <p>Combine all 5 drills into a structured 90-minute practice session. Begin with shadow batting as a warm-up (15 mins), move to the tee drill for technique work (20 mins), then throw-downs (25 mins), short-pitch reactions (15 mins) and finish with the two-ball concentrate drill (15 mins).</p>
 
-        <!-- Share -->
-        <div style="margin-top:48px;padding-top:24px;border-top:1px solid var(--border-color);">
-          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      </article>
+
+      <!-- Share -->
+      <div class="blog-share" style="padding-top:24px;border-top:1px solid var(--border-color);">
+          <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:clamp(24px,4vw,48px);">
             <div>
               <div style="font-family:var(--font-display);font-weight:700;font-size:0.85rem;color:var(--text-muted);margin-bottom:8px;letter-spacing:.08em;text-transform:uppercase;">Share Article</div>
               <div style="display:flex;gap:10px;">
-                <button onclick="showToast('Link copied to clipboard!', 'success')" class="social-btn" aria-label="Copy link"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button>
+                <button onclick="copyArticleLink(this)" class="social-btn share-btn-copy" aria-label="Copy link" title="Copy link"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button>
                 <a href="#" class="social-btn" aria-label="Share on Twitter">𝕏</a>
                 <a href="#" class="social-btn" aria-label="Share on Facebook">f</a>
                 <a href="#" class="social-btn" aria-label="Share on WhatsApp"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
               </div>
             </div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              <span class="blog-tag">Batting</span>
-              <span class="blog-tag">Drills</span>
-              <span class="blog-tag">Technique</span>
-            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;" id="bdShareTags">
           </div>
         </div>
+      </div>
 
-        <!-- Author Bio -->
-        <div class="card-glass" style="margin-top:40px;padding:clamp(24px,3vw,36px);display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;">
+      <!-- Author Bio -->
+      <div class="card-glass blog-author-card" style="padding:clamp(24px,3vw,36px);display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;" id="bdAuthorBio">
           <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=120&q=80&fit=crop&crop=faces" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid var(--border-gold);flex-shrink:0;" alt="Arjun Sharma" loading="lazy" />
           <div>
             <div style="font-family:var(--font-display);font-weight:700;font-size:1rem;margin-bottom:4px;">Arjun Sharma</div>
             <div style="color:var(--gold);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">Head Coach — Former Test Cricketer</div>
             <p style="font-size:0.88rem;margin:0;">Former India Test opening batsman with 18 Tests and 43 ODIs. Founder and Head Coach of EliteStrike Cricket Academy with 15+ years of professional coaching experience. BCCI Level 4 certified.</p>
           </div>
-        </div>
-      </article>
+      </div>
+      </div>
 
       <!-- Sidebar -->
       <aside style="display:flex;flex-direction:column;gap:24px;" class="reveal delay-2">
@@ -175,28 +163,7 @@
           <div class="card-header">
             <div style="font-family:var(--font-display);font-weight:700;font-size:0.85rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;">Related Articles</div>
           </div>
-          <div class="card-body" style="display:flex;flex-direction:column;gap:16px;padding:20px;">
-            <a href="blog-details.html" style="display:flex;gap:12px;align-items:center;">
-              <img src="https://images.unsplash.com/photo-1593341646782-e0b495cff86d?w=120&q=70&fit=crop" style="width:64px;height:64px;border-radius:var(--r-sm);object-fit:cover;flex-shrink:0;" alt="Bowling article" loading="lazy" />
-              <div>
-                <div style="font-size:0.82rem;font-weight:600;line-height:1.4;color:var(--text-primary);margin-bottom:4px;">The Science of Fast Bowling</div>
-                <div style="font-size:0.72rem;color:var(--text-muted);">Jul 28, 2025</div>
-              </div>
-            </a>
-            <a href="blog-details.html" style="display:flex;gap:12px;align-items:center;">
-              <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=120&q=70&fit=crop" style="width:64px;height:64px;border-radius:var(--r-sm);object-fit:cover;flex-shrink:0;" alt="Fitness article" loading="lazy" />
-              <div>
-                <div style="font-size:0.82rem;font-weight:600;line-height:1.4;color:var(--text-primary);margin-bottom:4px;">Cricket-Specific Fitness Training</div>
-                <div style="font-size:0.72rem;color:var(--text-muted);">Jul 15, 2025</div>
-              </div>
-            </a>
-            <a href="blog-details.html" style="display:flex;gap:12px;align-items:center;">
-              <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=120&q=70&fit=crop" style="width:64px;height:64px;border-radius:var(--r-sm);object-fit:cover;flex-shrink:0;" alt="Coaching article" loading="lazy" />
-              <div>
-                <div style="font-size:0.82rem;font-weight:600;line-height:1.4;color:var(--text-primary);margin-bottom:4px;">Playing Spin: Footwork Secrets</div>
-                <div style="font-size:0.72rem;color:var(--text-muted);">Jun 18, 2025</div>
-              </div>
-            </a>
+          <div class="card-body" style="display:flex;flex-direction:column;gap:16px;padding:20px;" id="bdRelated">
           </div>
         </div>
 
@@ -211,13 +178,7 @@
         <!-- Tags -->
         <div class="card" style="padding:20px;">
           <div style="font-family:var(--font-display);font-weight:700;font-size:0.8rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;">Tags</div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            <span class="blog-tag">Batting</span>
-            <span class="blog-tag">Drills</span>
-            <span class="blog-tag">Technique</span>
-            <span class="blog-tag">Practice</span>
-            <span class="blog-tag">Cricket Tips</span>
-            <span class="blog-tag">Training</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;" id="bdSideTags">
           </div>
         </div>
       </aside>
@@ -293,5 +254,296 @@
 <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 <div class="toast-container" id="toastContainer"></div>
 <script src="js/main.js"></script>
+<script>
+var ARTICLES = {
+  1: {
+    crumb: '5 Batting Drills',
+    title: '5 Batting Drills Every Cricketer Must Master',
+    metaDesc: '5 Batting Drills Every Cricketer Must Master — Expert batting coaching article by Head Coach Arjun Sharma of EliteStrike Cricket Academy.',
+    tags: ['Batting', 'Technique'],
+    date: 'August 10, 2025', read: '8 min read', views: '12,400 views',
+    dateShort: 'Aug 10, 2025', relatedTitle: '5 Batting Drills Every Cricketer Must Master',
+    hero: 'https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?w=1400&q=90&fit=crop', heroAlt: 'Batting drills cricket',
+    author: {
+      name: 'Arjun Sharma', role: 'Head Coach — Former India Test Cricketer',
+      img: 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=100&q=80&fit=crop&crop=faces',
+      bioImg: 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=120&q=80&fit=crop&crop=faces',
+      bio: 'Former India Test opening batsman with 18 Tests and 43 ODIs. Founder and Head Coach of EliteStrike Cricket Academy with 15+ years of professional coaching experience. BCCI Level 4 certified.'
+    },
+    shareTags: ['Batting', 'Drills', 'Technique'],
+    sideTags: ['Batting', 'Drills', 'Technique', 'Practice', 'Cricket Tips', 'Training'],
+    related: [2, 3, 5],
+    body: '<p>After 25 years in professional cricket as a player and coach, I\u2019ve identified the 5 drills that separate good batsmen from great ones. These aren\u2019t just exercises — they\u2019re the fundamental pillars of elite batting that I\u2019ve refined through thousands of coaching sessions at EliteStrike.</p>'
+      + '<blockquote>"The quality of your practice determines the quality of your performance. Every drill has a purpose — know the \u2018why\u2019 before you pick up the bat." — Arjun Sharma</blockquote>'
+      + '<h2>1. Shadow Batting Drill</h2>'
+      + '<p>Shadow batting is the most underrated drill in cricket. Pick up your bat without a ball, stand in front of a mirror and play every shot in your repertoire. The key is to move your feet first, then swing the bat — never the other way around.</p>'
+      + '<p>Start each session with 100 shadow shots across all positions — front foot drives, back foot pulls, cuts, and glances. Your muscle memory will thank you when you\u2019re facing a 140 km/h delivery under pressure.</p>'
+      + '<h2>2. Throw-Down Sessions</h2>'
+      + '<p>Throw-down sessions are a staple at EliteStrike for a very good reason. Having a coach or training partner throw balls at a specific length and line for extended periods forces you to commit to playing each delivery on its merit.</p>'
+      + '<ul><li>Start with 20 consecutive forward defense shots on full length</li><li>Progress to 20 back-foot punches on good length</li><li>Finish with 20 attacking front-foot drives</li><li>Repeat 3 sets without taking a break between shots</li></ul>'
+      + '<h2>3. The Batting Tee Drill</h2>'
+      + '<p>The batting tee is not just for beginners. Even professional cricketers use batting tees to isolate specific technical errors. At EliteStrike, we use tees to correct common faults like:</p>'
+      + '<ul><li>Head falling away at point of contact</li><li>Hard hands instead of soft hands for placement shots</li><li>Swinging across the line</li><li>Poor weight transfer through the shot</li></ul>'
+      + '<h2>4. The Short-Pitch Reaction Drill</h2>'
+      + '<p>Modern cricket demands batsmen to be exceptional against short-pitched bowling. This drill uses a bowling machine set to deliver balls at variable heights between chest and throat height.</p>'
+      + '<p>First, build instinctive reactions to the bouncer. Then, develop the ability to pick the ball early and choose between the hook shot, duck, sway, or the safe option of taking it on the gloves and letting it drop.</p>'
+      + '<h2>5. The Two-Ball Concentrate Drill</h2>'
+      + '<p>This is my personal favourite — and it\u2019s the drill I use with every player who joins our Elite Pathway program. Place two balls side by side on a bowling machine and alternate between two different speeds. The batsman must identify which ball is coming, make a split-second decision, and play the correct shot.</p>'
+      + '<p>This drill develops concentration, decisiveness and the ability to process information under pressure — the exact skills needed when a crafty bowler tries to trick you with variations.</p>'
+      + '<blockquote>"Consistency comes from repetition, and great technique comes from purposeful repetition. These 5 drills, done properly, will transform your batting within 3 months." — Arjun Sharma</blockquote>'
+      + '<h2>How to Structure Your Practice</h2>'
+      + '<p>Combine all 5 drills into a structured 90-minute practice session. Begin with shadow batting as a warm-up (15 mins), move to the tee drill for technique work (20 mins), then throw-downs (25 mins), short-pitch reactions (15 mins) and finish with the two-ball concentrate drill (15 mins).</p>'
+  },
+  2: {
+    crumb: 'Science of Fast Bowling',
+    title: 'The Science of Fast Bowling: Increase Pace Safely',
+    metaDesc: 'The Science of Fast Bowling — biomechanical insights into generating pace safely, by Bowling Coach Ravi Patel of EliteStrike Cricket Academy.',
+    tags: ['Bowling', 'Science'],
+    date: 'July 28, 2025', read: '9 min read', views: '8,900 views',
+    dateShort: 'Jul 28, 2025', relatedTitle: 'The Science of Fast Bowling',
+    hero: 'https://images.unsplash.com/photo-1593341646782-e0b495cff86d?w=1400&q=90&fit=crop', heroAlt: 'Fast bowling technique',
+    author: {
+      name: 'Ravi Patel', role: 'Bowling Coach — Former First-Class Fast Bowler',
+      img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80&fit=crop&crop=faces',
+      bioImg: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80&fit=crop&crop=faces',
+      bio: 'Former Tamil Nadu first-class fast bowler with 250+ first-class wickets. Bowling coach at EliteStrike specialising in pace, swing and injury prevention. BCCI Level 2 certified.'
+    },
+    shareTags: ['Bowling', 'Pace', 'Biomechanics'],
+    sideTags: ['Bowling', 'Pace', 'Swing', 'Injury Prevention', 'Cricket Tips', 'Training'],
+    related: [1, 4, 5],
+    body: '<p>Pace is the most feared weapon in cricket — but it is also the most misunderstood. At EliteStrike, I work with fast bowlers every day, and the biggest myth I have to break is that pace comes from brute arm strength. It never does. Pace comes from the body working like a whip, in the right sequence.</p>'
+      + '<blockquote>"Speed is a by-product of rhythm. The moment a bowler tries to bowl fast by forcing the arm, the rhythm dies and the pace drops." — Ravi Patel</blockquote>'
+      + '<h2>1. The Loading Phase: Where Pace Actually Comes From</h2>'
+      + '<p>Every great fast bowler loads the front knee hard at the delivery stride. That front-leg block is the slingshot — it converts horizontal run-up speed into upward rotation of the torso, and finally into arm speed at release.</p>'
+      + '<p>Work on your knee drive with a simple drill: bowl off a shortened run-up and focus on the front knee staying bent through delivery. Do not chase distance before this pattern is automatic.</p>'
+      + '<h2>2. Front-Arm Drive and the Whip Effect</h2>'
+      + '<p>The front arm is the steering wheel of your action. A strong, high front arm pulls the chest open and creates the shoulder separation that generates real pace — not the arm throw.</p>'
+      + '<ul><li>Rehearse the action in slow motion with a resistance band</li><li>Keep the front arm high until the chest faces the target</li><li>Let the bowling arm follow naturally — never force it</li></ul>'
+      + '<h2>3. Run-Up Consistency</h2>'
+      + '<p>If your run-up is different every ball, your action will be too. Mark your run-up, measure it, and repeat it until it is identical. Use landmark practice — bowl 6 balls from the exact same mark in every session.</p>'
+      + '<h2>4. Protecting Your Body</h2>'
+      + '<p>Pace without durability is a career that ends early. Build a strong core and landing leg, and never bowl flat-out in the nets before you are warm. Our fast bowlers follow a strict workload protocol — you should too.</p>'
+      + '<blockquote>"Bowlers don\u2019t break because they bowl fast. They break because they build wrong." — Ravi Patel</blockquote>'
+      + '<h2>Building Your Pace Programme</h2>'
+      + '<p>Stick to two high-intensity pace sessions per week, with technique and recovery sessions in between. Track your speeds monthly — a steady 2–3 km/h gain every quarter is a realistic, safe target.</p>'
+  },
+  3: {
+    crumb: 'Cricket-Specific Fitness',
+    title: 'Cricket-Specific Fitness: Training Like a Pro',
+    metaDesc: 'Cricket-Specific Fitness — the complete guide to building cricket-specific strength, speed, agility and endurance, by Head of Fitness Sunil Kumar.',
+    tags: ['Fitness', 'Strength'],
+    date: 'July 15, 2025', read: '10 min read', views: '7,300 views',
+    dateShort: 'Jul 15, 2025', relatedTitle: 'Cricket-Specific Fitness Training',
+    hero: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1400&q=90&fit=crop', heroAlt: 'Cricket fitness training',
+    author: {
+      name: 'Sunil Kumar', role: 'Head of Fitness & Conditioning',
+      img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80&fit=crop&crop=faces',
+      bioImg: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&q=80&fit=crop&crop=faces',
+      bio: 'Head of Fitness & Conditioning at EliteStrike. Certified Strength & Conditioning coach (NSCA) with 10+ years working with professional cricketers across all age groups.'
+    },
+    shareTags: ['Fitness', 'Strength', 'Endurance'],
+    sideTags: ['Fitness', 'Strength', 'Speed', 'Agility', 'Endurance', 'Conditioning'],
+    related: [1, 2, 6],
+    body: '<p>Most amateur cricketers train like bodybuilders and wonder why they tire in the 40th over. Cricket is a game of repeated short bursts — a fielder sprints 10 metres, throws, walks back, and does it again, fifty times a day. Your fitness must mirror that pattern.</p>'
+      + '<blockquote>"You don\u2019t need to be the strongest athlete in the room. You need to be the most repeatable one." — Sunil Kumar</blockquote>'
+      + '<h2>1. Strength: The Foundation</h2>'
+      + '<p>Focus on the posterior chain — squats, deadlifts and hip hinges build the drive that batsmen and bowlers both rely on. Two sessions a week of full-body compound lifts are enough; leave the mirror muscles for the off-season.</p>'
+      + '<h2>2. Speed: First-Step Explosiveness</h2>'
+      + '<p>Bowlers are not marathon runners. Develop 10-metre accelerations, agility ladders and lateral shuffle drills. Quick feet between the wickets and explosive first steps in the field win close matches.</p>'
+      + '<ul><li>6 × 10m sprints, full recovery between sets</li><li>Box jumps and hurdle hops for reactive power</li><li>Lateral bounds to build change-of-direction speed</li></ul>'
+      + '<h2>3. Agility: Read, React, Move</h2>'
+      + '<p>Combine footwork patterns with reaction cues — mirror drills, ball-drop reactions and cone drills where direction is decided at the last moment. Cricket rewards the player who moves first.</p>'
+      + '<h2>4. Endurance: Match-Specific, Not Gym-Specific</h2>'
+      + '<p>Build your engine with interval work: 30 seconds hard, 30 seconds easy, repeated for 10–15 minutes. Once a week, run a long shuttle session to replicate the stop-start rhythm of a match day.</p>'
+      + '<h2>Sample Weekly Plan</h2>'
+      + '<p>Monday — lower body strength. Wednesday — speed and agility. Friday — upper body strength plus core. Match days replace your interval session. Recovery walk and stretching on the remaining days.</p>'
+      + '<blockquote>"Train like you play. The gym is only the workshop — the field is the exam." — Sunil Kumar</blockquote>'
+  },
+  4: {
+    crumb: 'Reading the Game',
+    title: 'Reading the Game: Match Intelligence for Young Cricketers',
+    metaDesc: 'Reading the Game — how to read pitch conditions, set fields and make smart decisions under pressure, by Head Coach Arjun Sharma.',
+    tags: ['Tactics', 'Match Intelligence'],
+    date: 'July 2, 2025', read: '7 min read', views: '5,600 views',
+    dateShort: 'Jul 2, 2025', relatedTitle: 'Reading the Game: Match Intelligence',
+    hero: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1400&q=90&fit=crop', heroAlt: 'Cricket tactics and strategy',
+    author: {
+      name: 'Arjun Sharma', role: 'Head Coach — Former India Test Cricketer',
+      img: 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=100&q=80&fit=crop&crop=faces',
+      bioImg: 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=120&q=80&fit=crop&crop=faces',
+      bio: 'Former India Test opening batsman with 18 Tests and 43 ODIs. Founder and Head Coach of EliteStrike Cricket Academy with 15+ years of professional coaching experience. BCCI Level 4 certified.'
+    },
+    shareTags: ['Tactics', 'Strategy', 'Captaincy'],
+    sideTags: ['Tactics', 'Match Intelligence', 'Field Settings', 'Captaincy', 'Decision Making', 'Cricket Tips'],
+    related: [1, 5, 6],
+    body: '<p>Technique gets you selected. Tactics win you matches. At EliteStrike we start teaching match intelligence from Under-12 — and it shows. Our players read situations, ask the right questions, and rarely make the same mistake twice.</p>'
+      + '<blockquote>"Cricket is played in the head between the ears. The bat and ball are just the tools." — Arjun Sharma</blockquote>'
+      + '<h2>1. Reading the Pitch</h2>'
+      + '<p>Look at the pitch before the toss, not after. Dry, cracked surfaces spin. Green surfaces seam. Hard, shiny pitches carry through fast. Make your first decision — bat or bowl — on evidence, not habit.</p>'
+      + '<p>During play, keep re-evaluating. A pitch that was slow at 9 AM can be a road by noon and a minefield by evening.</p>'
+      + '<h2>2. Setting Fields That Talk</h2>'
+      + '<p>Good captains set fields that invite the batsman to make a mistake. Ask yourself three questions before every ball:</p>'
+      + '<ul><li>What is this bowler trying to do?</li><li>Where does this batsman score most of his runs?</li><li>What field makes that scoring shot a risk?</li></ul>'
+      + '<h2>3. Decision-Making Under Pressure</h2>'
+      + '<p>Pressure is a fog. The remedy is a pre-planned routine: breathe, name the situation, pick the option you practised in training. When the plan exists, the fog clears.</p>'
+      + '<h2>4. The Next-Ball Mentality</h2>'
+      + '<p>Great players treat each ball as a fresh event. The dropped catch, the missed run-out — analyse it, then park it. The scoreboard keeps moving whether you are stuck in the past or not.</p>'
+      + '<blockquote>"Wisdom in cricket is knowing what happens next — and being ready for it." — Arjun Sharma</blockquote>'
+  },
+  5: {
+    crumb: 'Playing Spin',
+    title: 'Playing Spin: Footwork & Shot Selection Secrets',
+    metaDesc: 'Playing Spin — footwork patterns and shot selection strategies that master spin bowling, by batting coach Priya Menon.',
+    tags: ['Batting', 'Spin'],
+    date: 'June 18, 2025', read: '8 min read', views: '6,800 views',
+    dateShort: 'Jun 18, 2025', relatedTitle: 'Playing Spin: Footwork Secrets',
+    hero: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=1400&q=90&fit=crop', heroAlt: 'Spin batting technique',
+    author: {
+      name: 'Priya Menon', role: 'Batting Coach — Spin Specialist',
+      img: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=100&q=80&fit=crop&crop=faces',
+      bioImg: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=120&q=80&fit=crop&crop=faces',
+      bio: 'Former Ranji Trophy batter with 3,400+ first-class runs. Spin-batting specialist and batting coach at EliteStrike, known for developing aggressive players against spin.'
+    },
+    shareTags: ['Batting', 'Spin', 'Footwork'],
+    sideTags: ['Batting', 'Spin', 'Footwork', 'Shot Selection', 'Sweep', 'Cricket Tips'],
+    related: [1, 2, 4],
+    body: '<p>Ask any young batter what they fear most and the answer is almost always the same: spin. Yet the players who score big against spinners are not gifted — they simply commit earlier. Indecision is what gets you out against spin, not lack of talent.</p>'
+      + '<blockquote>"Against spin, the worst option is no option. Commit — even to the wrong shot — and you will survive more than half the time." — Priya Menon</blockquote>'
+      + '<h2>1. The First Move: Feet, Then Hands</h2>'
+      + '<p>Every good innings against spin starts with decisive footwork. If the ball is full, go forward to the pitch. If it\u2019s short, rock back. The head must lead the feet, and the hands must follow the head.</p>'
+      + '<h2>2. Reading the Length Early</h2>'
+      + '<p>Watch the release point, not the hand, to pick up length half a second earlier. Spinners give away length through their release angle — learn to spot it in the nets and you\u2019ll buy yourself time in the middle.</p>'
+      + '<h2>3. The Scoring Shots</h2>'
+      + '<ul><li>Sweep — the great equaliser against flight and turn</li><li>Reverse sweep — one or two an over, only when you trust it</li><li>Push along the ground — rotating strike keeps the scoreboard honest</li><li>Dance down the track — only to full balls you can reach</li></ul>'
+      + '<h2>4. The Survival Shot</h2>'
+      + '<p>When a spinner is in control, play the straight-batted defence with the pad tucked close. Survive the good over, score off the loose one. Test-match mentality wins limited-overs games too.</p>'
+      + '<h2>Drills We Use at EliteStrike</h2>'
+      + '<p>Our spin nets use pitch-marked cones to force early decisions, and a weighted bat to slow hands down so footwork leads. Practise reading length from a thrower at varied speeds before you face a real spinner.</p>'
+      + '<blockquote>"You can\u2019t sweep a ball you haven\u2019t reached. Footwork first, always." — Priya Menon</blockquote>'
+  },
+  6: {
+    crumb: 'BCCI Best Academy Award',
+    title: 'EliteStrike Wins BCCI Best Academy Award for 3rd Year',
+    metaDesc: 'EliteStrike Cricket Academy wins the BCCI Best Private Cricket Academy award in Tamil Nadu for an unprecedented third consecutive year.',
+    tags: ['News', 'Academy'],
+    date: 'June 5, 2025', read: '4 min read', views: '15,200 views',
+    dateShort: 'Jun 5, 2025', relatedTitle: 'EliteStrike Wins BCCI Best Academy Award',
+    hero: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1400&q=90&fit=crop', heroAlt: 'Academy award ceremony',
+    author: {
+      name: 'Vikram Nair', role: 'Media & Communications Lead',
+      img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80&fit=crop&crop=faces',
+      bioImg: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&q=80&fit=crop&crop=faces',
+      bio: 'Media & Communications lead at EliteStrike Cricket Academy. Covers academy news, player achievements and community programmes.'
+    },
+    shareTags: ['News', 'Awards', 'Academy'],
+    sideTags: ['News', 'Awards', 'Academy', 'BCCI', 'Achievements', 'Community'],
+    related: [7, 3, 4],
+    body: '<p>Chennai, June 5, 2025 — EliteStrike Cricket Academy has been recognised by the Board of Control for Cricket in India (BCCI) as the best private cricket academy in Tamil Nadu for an unprecedented third consecutive year.</p>'
+      + '<p>The award was presented at the BCCI State Academy Conclave, where EliteStrike was honoured for its structured development programme, coach education standards and the professional pathways it creates for young players.</p>'
+      + '<blockquote>"Three years in a row is not luck — it is a system. Every coach, every parent and every player in this academy contributed to this achievement." — Arjun Sharma</blockquote>'
+      + '<h2>What Made the Difference</h2>'
+      + '<p>The judging panel highlighted three areas of excellence:</p>'
+      + '<ul><li>The 5-Year Development Programme covering Under-12 to professional level</li><li>Player monitoring with video analysis and weekly performance reviews</li><li>Coach development — every EliteStrike coach holds a recognised BCCI qualification</li></ul>'
+      + '<h2>Player Achievements</h2>'
+      + '<p>The 2024–25 season saw 14 EliteStrike players selected for district squads, 6 for state age-group teams, and 2 earning rookie contracts in the Tamil Nadu Premier League.</p>'
+      + '<h2>Looking Ahead</h2>'
+      + '<p>EliteStrike will invest the award grant in a new indoor training facility and a scholarship programme for underprivileged talent, starting this September.</p>'
+  },
+  7: {
+    crumb: '5-Year Development Program',
+    title: 'The Complete Guide to Building an Elite Cricketer: Our Proven 5-Year Development Program',
+    metaDesc: 'The Complete Guide to Building an Elite Cricketer — Head Coach Arjun Sharma breaks down the exact 5-year curriculum EliteStrike uses from Under-12 to professional cricket.',
+    tags: ['Featured', 'Development'],
+    date: 'August 15, 2025', read: '12 min read', views: '21,900 views',
+    dateShort: 'Aug 15, 2025', relatedTitle: 'The Complete Guide to Building an Elite Cricketer',
+    hero: 'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=1400&q=90&fit=crop', heroAlt: 'Young cricketer training',
+    author: {
+      name: 'Arjun Sharma', role: 'Head Coach — Former India Test Cricketer',
+      img: 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=100&q=80&fit=crop&crop=faces',
+      bioImg: 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=120&q=80&fit=crop&crop=faces',
+      bio: 'Former India Test opening batsman with 18 Tests and 43 ODIs. Founder and Head Coach of EliteStrike Cricket Academy with 15+ years of professional coaching experience. BCCI Level 4 certified.'
+    },
+    shareTags: ['Development', 'Academy', 'Coaching'],
+    sideTags: ['Development', 'Academy', 'Under-12', 'Professional', 'Coaching', 'Pathway'],
+    related: [1, 3, 2],
+    body: '<p>Every parent who walks into EliteStrike asks the same question: "How long until my child is a professional cricketer?" The honest answer is: five years of disciplined, structured work — and we have built our entire academy around that timeline.</p>'
+      + '<blockquote>"Talent is the starting line, not the finish. The 5-year programme is how raw talent becomes a professional." — Arjun Sharma</blockquote>'
+      + '<h2>Year 1 — Foundation (Under-12)</h2>'
+      + '<p>The first year is about fundamentals and love for the game. We build correct grip, stance and basic footwork, but more importantly we build habits: arriving early, warming up properly and training with intent.</p>'
+      + '<p>Technical goals: correct defence, basic drives and a repeatable bowling action. Fitness is playful — coordination, balance and movement games.</p>'
+      + '<h2>Year 2 — Skill Building</h2>'
+      + '<p>Volume increases sharply. Batsmen are introduced to the full shot range; bowlers discover their stock delivery and develop accuracy from a consistent run-up. Players begin weekly match practice with scoring and review.</p>'
+      + '<h2>Year 3 — Specialisation</h2>'
+      + '<p>This is where we identify roles: specialist batter, seam bowler, spinner, all-rounder, wicketkeeper. Training becomes position-specific and performance targets are set for each player every term.</p>'
+      + '<ul><li>Video analysis every month with the player and parents</li><li>Strength and conditioning introduced twice a week</li><li>First competitive district tournaments</li></ul>'
+      + '<h2>Year 4 — Competition</h2>'
+      + '<p>Players enter league cricket and state trials. We manage workloads, build mental toughness through match simulation and introduce sports psychology sessions with our performance coach.</p>'
+      + '<h2>Year 5 — Professional Pathway</h2>'
+      + '<p>The final year is about being match-ready for serious cricket: state age-group trials, TNPL rookies and academy contracts. Fitness is at professional level and each player has a personal performance dossier.</p>'
+      + '<blockquote>"After five years, the academy\u2019s job is done — the player\u2019s journey has only just begun." — Arjun Sharma</blockquote>'
+      + '<h2>How Parents Can Help</h2>'
+      + '<p>Trust the process. Cricket development is not linear — there will be plateaus. Keep attendance consistent, celebrate effort over results, and let our coaches do the technical coaching. Together, we build the cricketer.</p>'
+  }
+};
+
+(function () {
+  var id = parseInt(new URLSearchParams(window.location.search).get('id'), 10);
+  var a = ARTICLES[id] || ARTICLES[1];
+  document.title = a.title + ' — EliteStrike Blog';
+  var md = document.querySelector('meta[name="description"]');
+  if (md) md.setAttribute('content', a.metaDesc);
+  function $(x) { return document.getElementById(x); }
+  function tagSpans(list) {
+    var s = '';
+    for (var i = 0; i < list.length; i++) s += '<span class="blog-tag">' + list[i] + '</span>';
+    return s;
+  }
+  $('bdCrumb').textContent = a.crumb;
+  $('bdMeta').innerHTML = tagSpans(a.tags)
+    + '<span style="color:var(--text-muted);"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> ' + a.date + '</span>'
+    + '<span style="color:var(--text-muted);"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> ' + a.read + '</span>'
+    + '<span style="color:var(--text-muted);"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg> ' + a.views + '</span>';
+  $('bdTitle').textContent = a.title;
+  $('bdAuthor').innerHTML = '<img src="' + a.author.img + '" alt="' + a.author.name + '" class="author-avatar" loading="lazy" />'
+    + '<div><div class="author-name">' + a.author.name + '</div><div class="author-role">' + a.author.role + '</div></div>';
+  $('bdHero').src = a.hero;
+  $('bdHero').alt = a.heroAlt;
+  $('bdBody').innerHTML = a.body;
+  $('bdShareTags').innerHTML = tagSpans(a.shareTags);
+  $('bdAuthorBio').innerHTML = '<img src="' + a.author.bioImg + '" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid var(--border-gold);flex-shrink:0;" alt="' + a.author.name + '" loading="lazy" />'
+    + '<div><div style="font-family:var(--font-display);font-weight:700;font-size:1rem;margin-bottom:4px;">' + a.author.name + '</div>'
+    + '<div style="color:var(--gold);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">' + a.author.role + '</div>'
+    + '<p style="font-size:0.88rem;margin:0;">' + a.author.bio + '</p></div>';
+  $('bdSideTags').innerHTML = tagSpans(a.sideTags);
+  var rel = '';
+  for (var r = 0; r < a.related.length; r++) {
+    var b = ARTICLES[a.related[r]];
+    rel += '<a href="blog-details.html?id=' + a.related[r] + '" style="display:flex;gap:12px;align-items:center;">'
+      + '<img src="' + b.hero.replace('w=1400&q=90', 'w=120&q=70') + '" style="width:64px;height:64px;border-radius:var(--r-sm);object-fit:cover;flex-shrink:0;" alt="' + b.heroAlt + '" loading="lazy" />'
+      + '<div><div style="font-size:0.82rem;font-weight:600;line-height:1.4;color:var(--text-primary);margin-bottom:4px;">' + b.relatedTitle + '</div>'
+      + '<div style="font-size:0.72rem;color:var(--text-muted);">' + b.dateShort + '</div></div></a>';
+  }
+  $('bdRelated').innerHTML = rel;
+})();
+
+function copyArticleLink(btn) {
+  var url = window.location.href;
+  function done() { showToast('Link copied to clipboard!', 'success'); }
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(url).then(done, function () { fallbackCopy(url); done(); });
+  } else { fallbackCopy(url); done(); }
+}
+function fallbackCopy(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.setAttribute('readonly', '');
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+</script>
 </body>
 </html>
