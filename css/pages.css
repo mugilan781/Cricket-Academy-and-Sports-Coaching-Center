@@ -1675,7 +1675,7 @@
 }
 
 /* Stats band */
-.stats-section { padding-block: clamp(28px, 4vw, 48px) 12px; }
+.stats-section { padding-block: clamp(56px, 6vw, 96px); }
 .stats-panel {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -1714,7 +1714,7 @@
 @media (max-width: 420px) { .stats-panel { grid-template-columns: 1fr; } }
 
 /* Programs spacing + card alignment */
-.programs-section { padding-top: clamp(48px, 6vw, 80px); }
+.programs-section { padding-top: clamp(40px, 5vw, 72px); }
 .program-card { display: flex; flex-direction: column; }
 .program-card h4 { margin-bottom: 10px; }
 .program-card .program-features { flex: 1 0 auto; }
@@ -1790,9 +1790,6 @@
 /* Program card age badge: content width, not stretched */
 .program-card .age-badge { align-self: flex-start; }
 
-/* Alternating section background */
-.advantages-section { background: var(--bg-secondary); }
-
 /* Coach overlay: badge + hover text visibility (card is always dark) */
 .coach-card { --emerald-light: #12C489; --crimson-light: #FF8B84; --slate-light: #CBD5E1; }
 .coach-card .badge {
@@ -1812,4 +1809,12 @@
   --text-primary: #F7F8F5;
   --text-secondary: rgba(247,248,245,0.8);
   --border-color: rgba(255,255,255,0.25);
+}
+
+/* Alternating band backgrounds — clearly visible in both themes */
+.band-secondary {
+  background: linear-gradient(180deg, #112F50 0%, #0D2641 50%, #0B2036 100%);
+}
+[data-theme="light"] .band-secondary {
+  background: linear-gradient(180deg, #E6EEF5 0%, #E2EAF0 50%, #DCE6EE 100%);
 }
