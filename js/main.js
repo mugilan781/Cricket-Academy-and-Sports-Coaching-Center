@@ -482,6 +482,27 @@ function initParallax() {
   }, { passive: true });
 }
 
+/* ── Footer Newsletter ─────────────────────────────── */
+function initFooterNewsletter() {
+  const form = document.getElementById('footerNewsletter');
+  if (!form) return;
+
+  const input = form.querySelector('input[type="email"]');
+  if (input) input.addEventListener('input', () => input.classList.remove('error'));
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const email = input ? input.value.trim() : '';
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showToast('Subscribed! Stay tuned for academy news and updates.', 'success');
+      form.reset();
+    } else {
+      if (input) input.classList.add('error');
+      showToast('Please enter a valid email address.', 'error');
+    }
+  });
+}
+
 /* ── Init All ────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
@@ -498,4 +519,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initSectionSpy();
   initParallax();
   initPageTransitions();
+  initFooterNewsletter();
 });
