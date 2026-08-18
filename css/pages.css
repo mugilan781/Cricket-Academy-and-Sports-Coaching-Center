@@ -1962,3 +1962,7 @@ body:has(.hero-slider) .navbar:not(.scrolled) {
 .page-hero .breadcrumb { justify-content: center; }
 .page-hero h1 { color: var(--text-primary); }
 .page-hero p { margin-inline: auto; color: var(--text-secondary); }
+
+/* About faculty: straight left-edge alignment for overlay text + icon row */
+.coach-card .coach-overlay { align-items: flex-start; text-align: start; }
+.coach-card .coach-socials { justify-content: flex-start; }
