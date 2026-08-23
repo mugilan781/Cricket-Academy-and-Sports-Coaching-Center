@@ -900,16 +900,53 @@
 
 /* Mobile + tablet: single column so the info, map and form all get full width */
 @media (max-width: 1024px) {
-  .contact-grid { grid-template-columns: 1fr; gap: clamp(36px, 5vw, 56px); }
+  .contact-grid { grid-template-columns: 1fr; gap: clamp(32px, 5vw, 48px); }
   .map-embed { margin-top: 28px; }
 }
 
-/* Phones: the map needs a usable height even at 16:9 on a narrow screen */
 @media (max-width: 768px) {
   .map-embed { aspect-ratio: auto; height: 240px; }
-  .contact-info-item { gap: 14px; }
+  .contact-info-item { gap: 14px; margin-bottom: 24px; }
   .contact-info-item > div:last-child { min-width: 0; overflow-wrap: anywhere; }
   .contact-socials { flex-wrap: wrap; }
+}
+
+@media (max-width: 480px) {
+  .contact-grid { gap: 32px; }
+  .contact-info-item { gap: 12px; margin-bottom: 20px; }
+  .contact-info-item p { font-size: 0.85rem !important; }
+  .contact-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+  }
+  .contact-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  .contact-socials {
+    gap: 7px !important;
+    flex-wrap: wrap !important;
+  }
+  .contact-socials .social-btn {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+  }
+  .contact-socials .social-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+  .contact-form-card {
+    padding: 20px 16px !important;
+  }
+  .grid-3 .card-glass.card-body {
+    padding: 24px 16px !important;
+  }
+  .grid-3 .card-glass .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* ─── DASHBOARD ──────────────────────────────────── */
@@ -1637,17 +1674,25 @@
 
 .checkbox-label {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 10px;
   cursor: pointer;
   color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
 
 .checkbox-label input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
   accent-color: var(--gold);
   cursor: pointer;
+}
+
+.checkbox-label span {
+  flex: 1;
 }
 
 .forgot-link {
