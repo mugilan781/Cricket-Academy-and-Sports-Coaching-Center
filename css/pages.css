@@ -951,6 +951,22 @@
 
 /* ─── DASHBOARD ──────────────────────────────────── */
 
+.dash-navbar-inner {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .dash-navbar-inner {
+    padding: 0 16px;
+  }
+}
+
 .dashboard-layout {
   display: grid;
   grid-template-columns: 260px 1fr;
