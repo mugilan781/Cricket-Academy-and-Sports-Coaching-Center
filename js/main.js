@@ -176,6 +176,14 @@ function initScrollReveal() {
   const els = $$('.reveal, .reveal-left, .reveal-right, .reveal-scale');
   if (!els.length) return;
 
+  // Immediately reveal elements whose top is already in or near viewport on load
+  els.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      el.classList.add('revealed');
+    }
+  });
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -183,9 +191,13 @@ function initScrollReveal() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.01, rootMargin: '0px 0px -20px 0px' });
 
-  els.forEach(el => observer.observe(el));
+  els.forEach(el => {
+    if (!el.classList.contains('revealed')) {
+      observer.observe(el);
+    }
+  });
 }
 
 /* ── Animated Counters ─────────────────────────────────── */
