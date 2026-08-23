@@ -14,24 +14,48 @@ function initPageTransitions() {
   const overlay = document.getElementById('pageTransition');
   if (!overlay) return;
 
-  // Fade in on load
-  window.addEventListener('load', () => {
+  const hideOverlay = () => {
     overlay.classList.remove('active');
-    setTimeout(() => overlay.style.display = 'none', 500);
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 400);
+  };
+
+  // Hide on initial load (both DOMReady and window load)
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(hideOverlay, 100);
+  } else {
+    document.addEventListener('DOMContentLoaded', hideOverlay);
+  }
+  window.addEventListener('load', hideOverlay);
+
+  // Handle Back/Forward cache (bfcache) navigation when user clicks browser Back button
+  window.addEventListener('pageshow', (event) => {
+    hideOverlay();
   });
 
   // Fade out on navigation
   $$('a[href]').forEach(link => {
     const href = link.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('mailto') ||
-        href.startsWith('tel') || href.startsWith('javascript') ||
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') ||
+        href.startsWith('tel:') || href.startsWith('javascript:') ||
         link.target === '_blank') return;
 
     link.addEventListener('click', e => {
+      // Don't intercept if user holds modifier keys (Ctrl+click, Cmd+click, etc.)
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+
       e.preventDefault();
       overlay.style.display = 'flex';
+      void overlay.offsetWidth; // force reflow for transition
       overlay.classList.add('active');
-      setTimeout(() => window.location.href = href, 400);
+
+      // Safety fallback: auto-hide if navigation takes too long or fails
+      setTimeout(hideOverlay, 3000);
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 350);
     });
   });
 }
