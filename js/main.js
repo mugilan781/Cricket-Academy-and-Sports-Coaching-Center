@@ -87,18 +87,40 @@ function initNavbar() {
     });
   }
 
-  // Active link
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  $$('.nav-link, .mobile-nav-link').forEach(link => {
-    const href = link.getAttribute('href') || '';
-    if (href === currentPath || href === `./${currentPath}`) {
-      link.classList.add('active');
-    }
-  });
+  // Active link resolution for current page & sub-pages
+  updateActiveNavState();
 
   // Back to top
   const btt = $('.back-to-top');
   btt?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+
+function updateActiveNavState() {
+  let currentFile = window.location.pathname.split('/').pop();
+  if (!currentFile || currentFile === '' || currentFile === '/') {
+    currentFile = 'index.html';
+  }
+
+  // Remove anchor / query strings
+  currentFile = currentFile.split('#')[0].split('?')[0];
+
+  // Map sub-pages / details pages to parent navbar item
+  const parentMap = {
+    'blog-details.html': 'blog.html'
+  };
+
+  const targetFile = parentMap[currentFile] || currentFile;
+
+  $$('.nav-link, .mobile-nav-link').forEach(link => {
+    const rawHref = link.getAttribute('href') || '';
+    const linkFile = rawHref.split('#')[0].split('?')[0].replace(/^\.\//, '');
+
+    if (linkFile === targetFile) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
 }
 
 /* ── Theme Toggle ─────────────────────────────────────── */
@@ -451,6 +473,10 @@ function initGallery() {
 
 /* ── Sticky Active Nav on Scroll ──────────────────── */
 function initSectionSpy() {
+  // Only target links in nav that have explicit anchor targets (e.g. href="#coaches")
+  const anchorLinks = $$('.nav-link[href*="#"], .mobile-nav-link[href*="#"]');
+  if (!anchorLinks.length) return;
+
   const sections = $$('section[id]');
   if (!sections.length) return;
 
@@ -458,8 +484,14 @@ function initSectionSpy() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.id;
-        $$('.nav-link').forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        anchorLinks.forEach(link => {
+          const href = link.getAttribute('href') || '';
+          const targetId = href.split('#').pop();
+          if (targetId === id) {
+            link.classList.add('active');
+          } else if (href.startsWith('#')) {
+            link.classList.remove('active');
+          }
         });
       }
     });
