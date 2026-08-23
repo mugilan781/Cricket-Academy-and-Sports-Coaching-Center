@@ -1223,6 +1223,13 @@
   transition: all var(--t-normal);
 }
 
+.match-card > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .match-card:hover { border-color: var(--border-gold); }
 
 .match-team {
