@@ -1122,7 +1122,8 @@ textarea.form-control {
   transition: transform 0.6s ease;
 }
 
-.coach-card:hover img { transform: scale(1.05); }
+.coach-card:hover img,
+.coach-card.active img { transform: scale(1.05); }
 
 .coach-overlay {
   position: absolute;
@@ -1162,7 +1163,8 @@ textarea.form-control {
   transition: max-height var(--t-slow);
 }
 
-.coach-card:hover .coach-bio { max-height: 100px; }
+.coach-card:hover .coach-bio,
+.coach-card.active .coach-bio { max-height: 120px; }
 
 .coach-socials {
   display: flex;
@@ -1173,7 +1175,8 @@ textarea.form-control {
   transition: max-height var(--t-slow);
 }
 
-.coach-card:hover .coach-socials { max-height: 40px; }
+.coach-card:hover .coach-socials,
+.coach-card.active .coach-socials { max-height: 40px; }
 
 .coach-social-btn {
   width: 32px;

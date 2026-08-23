@@ -308,7 +308,8 @@
   transition: transform 0.6s ease;
 }
 
-.facility-card:hover img { transform: scale(1.08); }
+.facility-card:hover img,
+.facility-card.active img { transform: scale(1.08); }
 
 .facility-overlay {
   position: absolute;
@@ -319,7 +320,8 @@
   padding: 24px;
 }
 
-.facility-card:hover .facility-overlay {
+.facility-card:hover .facility-overlay,
+.facility-card.active .facility-overlay {
   background: linear-gradient(180deg, rgba(8,26,43,0.3) 0%, rgba(8,26,43,0.97) 100%);
 }
 
@@ -339,7 +341,8 @@
   transition: max-height var(--t-slow);
 }
 
-.facility-card:hover .facility-desc { max-height: 60px; }
+.facility-card:hover .facility-desc,
+.facility-card.active .facility-desc { max-height: 80px; }
 
 /* Gallery Grid */
 .gallery-grid {
@@ -2133,7 +2136,8 @@ body:has(.hero-slider) .navbar:not(.scrolled) {
   opacity: 1;
   transition: background var(--t-normal);
 }
-.coach-card:hover .coach-overlay {
+.coach-card:hover .coach-overlay,
+.coach-card.active .coach-overlay {
   background: linear-gradient(180deg, rgba(8,26,43,0.78) 0%, rgba(6,17,30,0.97) 100%);
 }
 
@@ -2866,11 +2870,7 @@ body:has(.error-page) .error-content { padding-top: 0; }
   .page-hero h1 { font-size: clamp(1.8rem, 7vw, 3rem); }
 }
 
-/* ── Coach cards: reveal bio/socials without hover (touch devices) ── */
-@media (max-width: 768px) {
-  .coach-card .coach-bio { max-height: 110px; }
-  .coach-card .coach-socials { max-height: 40px; }
-}
+/* ── Coach cards: click/tap toggle on mobile and tablet ── */
 
 /* ── Hero slider: keep nav clear of stacked CTAs on short screens ── */
 @media (max-width: 768px) and (max-height: 640px) {

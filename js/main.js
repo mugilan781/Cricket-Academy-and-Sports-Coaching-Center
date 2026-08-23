@@ -532,6 +532,38 @@ function initFooterNewsletter() {
   });
 }
 
+/* ── Interactive Image Cards (Coach & Facility Click/Tap Toggle) ── */
+function initInteractiveCards() {
+  const cards = $$('.coach-card, .facility-card');
+  if (!cards.length) return;
+
+  cards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Allow social links or buttons inside card to navigate normally
+      if (e.target.closest('a, button')) return;
+
+      const isOpen = card.classList.contains('active');
+      
+      // Close other active cards in the same grid/section
+      const parentGrid = card.closest('.grid-4, .grid-3, .grid-2') || card.parentElement;
+      if (parentGrid) {
+        $$('.coach-card.active, .facility-card.active', parentGrid).forEach(other => {
+          if (other !== card) other.classList.remove('active');
+        });
+      }
+
+      card.classList.toggle('active', !isOpen);
+    });
+  });
+
+  // Close active cards when tapping outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.coach-card, .facility-card')) {
+      $$('.coach-card.active, .facility-card.active').forEach(c => c.classList.remove('active'));
+    }
+  });
+}
+
 /* ── Init All ────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
@@ -550,4 +582,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initPageTransitions();
   initFooterNewsletter();
   initDashboardSidebar();
+  initInteractiveCards();
 });
