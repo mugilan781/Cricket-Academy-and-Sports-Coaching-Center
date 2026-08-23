@@ -2902,6 +2902,22 @@ body:has(.hero-slider) .navbar:not(.scrolled) {
   .attendance-calendar > div { font-size: 0.62rem !important; }
 }
 
+/* ── admin-dashboard.html ── */
+.admin-dash .announcement-item { flex-wrap: wrap; }
+.admin-dash .announcement-item > [data-actions] { margin-left: auto; }
+[dir="rtl"] .admin-dash .announcement-item > [data-actions] { margin-left: 0; margin-right: auto; }
+
+@media (max-width: 768px) {
+  .admin-dash [data-actions] { flex: 1 1 100%; margin-left: 0; margin-right: 0; }
+  .admin-dash [data-actions] .btn,
+  .admin-dash .fee-actions .btn { flex: 1; justify-content: center; }
+  .admin-dash .schedule-table .btn.btn-sm { padding: 6px 10px; font-size: 0.72rem; white-space: nowrap; }
+}
+
+@media (max-width: 480px) {
+  .admin-dash #studentsCount { display: none; }
+}
+
 /* ── 404 / maintenance ── */
 body:has(.error-page) .error-content { padding-top: 0; }
 

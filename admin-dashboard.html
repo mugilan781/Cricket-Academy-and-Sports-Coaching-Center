@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EliteStrike Admin Dashboard — Manage students, coaches, batches, fees, matches, trials and academy announcements." />
+  <title>Admin Dashboard — EliteStrike Cricket Academy</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+</head>
+<body class="admin-dash">
+<div id="pageTransition" class="page-transition active"><div class="page-transition-logo"><img class="pt-logo-img" src="images/logo.png" alt="EliteStrike" /> EliteStrike</div></div>
+<div class="overlay" id="overlay"></div>
+<div class="overlay" id="dashOverlay"></div>
+
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo" aria-label="EliteStrike Cricket Academy"><img class="logo-img" src="images/logo.png" alt="EliteStrike" /><div class="logo-text"><span class="logo-name">EliteStrike</span><span class="logo-tagline">Cricket Academy</span></div></a>
+    <ul class="nav-menu" role="list">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="home2.html" class="nav-link">Home 2</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="services.html" class="nav-link">Programs</a></li>
+      <li><a href="blog.html" class="nav-link">Blog</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-controls">
+      <button class="control-btn theme-toggle" aria-label="Toggle theme" title="Toggle theme"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button class="control-btn rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL">RTL</button>
+      <div class="profile-dropdown">
+        <button class="control-btn profile-btn" aria-label="Account" title="Account"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
+        <div class="dropdown-menu profile-menu">
+          <a href="login.html" class="dropdown-item"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Login</a>
+          <a href="signup.html" class="dropdown-item"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg> Signup</a>
+          <a href="dashboard.html" class="dropdown-item"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20V10M18 20V4M6 20v-4"/></svg> Student Dashboard</a>
+          <a href="admin-dashboard.html" class="dropdown-item"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Admin Dashboard</a>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+  <a href="index.html" class="mobile-nav-link"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg> Home</a>
+  <a href="home2.html" class="mobile-nav-link"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 13.5 21 3.5"/><path d="M9 17l3.5-3.5 4 4L13 21z"/><circle cx="18.5" cy="18.5" r="3"/><path d="M16.2 20.4a4.5 4.5 0 0 1 4.2-3.6"/></svg> Home 2</a>
+  <a href="about.html" class="mobile-nav-link"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> About</a>
+  <a href="services.html" class="mobile-nav-link"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Programs</a>
+  <a href="blog.html" class="mobile-nav-link"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg> Blog</a>
+  <a href="contact.html" class="mobile-nav-link"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg> Contact</a>
+</nav>
+
+<div class="dashboard-layout">
+  <aside class="dashboard-sidebar" role="navigation" aria-label="Dashboard navigation">
+    <div class="sidebar-profile">
+      <img src="images/gen_about_coach.jpg" alt="Vikram Rao" class="sidebar-avatar" loading="lazy" />
+      <div class="sidebar-name">Vikram Rao</div>
+      <div class="sidebar-role"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Academy Director</div>
+      <div style="margin-top:10px;"><span class="badge badge-gold">Full Access</span></div>
+    </div>
+
+    <div class="sidebar-section-title">Main</div>
+    <div class="sidebar-link active" data-section="overview" onclick="showSection('overview', this)"><span class="icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></span> Dashboard Overview</div>
+    <div class="sidebar-link" data-section="students" onclick="showSection('students', this)"><span class="icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span> Students</div>
+    <div class="sidebar-link" data-section="coaches" onclick="showSection('coaches', this)"><span class="icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 13.5 21 3.5"/><path d="M9 17l3.5-3.5 4 4L13 21z"/><circle cx="18.5" cy="18.5" r="3"/><path d="M16.2 20.4a4.5 4.5 0 0 1 4.2-3.6"/></svg></span> Coaches</div>
+    <div class="sidebar-link" data-section="batches" onclick="showSection('batches', this)"><span class="icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span> Batches &amp; Schedule</div>
+
+    <div class="sidebar-section-title">Operations</div>
+    <div class="sidebar-link" data-section="fees" onclick="showSection('fees', this)"><span class="icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span> Fees &amp; Payments</div>
+    <div class="sidebar-link" data-section="attendance" onclick="showSection('attendance', this)"><span class="icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M9 11l3 3L22 4"/></svg></span> Attendance Overview</div>
+    <div class="sidebar-link" data-section="matches" onclick="showSection('matches', this)"><span class="icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 21h17"/><path d="M5.5 21V9.5A6.5 6.5 0 0 1 18.5 9.5V21"/><path d="M3.5 11h17"/><path d="M6 8.5 12 5.5l6 3"/></svg></span> Matches &amp; Events</div>
+    <div class="sidebar-link" data-section="trials" onclick="showSection('trials', this)"><span class="icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span> Trial Requests <span class="sidebar-badge">5</span></div>
+
+    <div class="sidebar-section-title">Academy</div>
+    <div class="sidebar-link" data-section="announcements" onclick="showSection('announcements', this)"><span class="icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span> Announcements</div>
+    <div class="sidebar-link" data-section="inquiries" onclick="showSection('inquiries', this)"><span class="icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span> Contact Inquiries <span class="sidebar-badge">3</span></div>
+    <div class="sidebar-link" data-section="profile" onclick="showSection('profile', this)"><span class="icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span> My Profile</div>
+    <div class="sidebar-link" data-section="settings" onclick="showSection('settings', this)"><span class="icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span> Settings</div>
+    <div class="mobile-nav-divider" style="margin-top:16px;"></div>
+    <a href="login.html" class="sidebar-link" style="color:var(--crimson-light);"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg> Logout</a>
+  </aside>
+
+  <main class="dashboard-main" id="dashMain">
+
+    <div class="dash-topbar">
+      <button class="dash-menu-btn" id="dashMenuBtn" aria-label="Toggle dashboard menu" aria-expanded="false" title="Dashboard menu">
+        <span class="dash-hamburger-icon" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span class="dash-menu-label">Admin Menu</span>
+      </button>
+      <div class="dash-topbar-profile">
+        <span class="dash-student-badge"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Administrator</span>
+        <img src="images/gen_about_coach.jpg" alt="Vikram Rao" class="dash-topbar-avatar" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- ── OVERVIEW ─────────────────────────────── -->
+    <div class="dash-section active" id="section-overview">
+      <div class="dashboard-header">
+        <div>
+          <div class="dashboard-greeting">Welcome back, Vikram! <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="greeting-sub">Monday, August 17, 2026 — 3 items need your attention today</div>
+        </div>
+        <button onclick="gotoSection('students')" class="btn btn-primary btn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg> Add New Student</button>
+      </div>
+
+      <div class="dash-stats">
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="dash-stat-val" data-count="248">0</div>
+          <div class="dash-stat-label">Total Students</div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+          <div class="dash-stat-val" data-count="8">0</div>
+          <div class="dash-stat-label">Active Batches</div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 13.5 21 3.5"/><path d="M9 17l3.5-3.5 4 4L13 21z"/><circle cx="18.5" cy="18.5" r="3"/><path d="M16.2 20.4a4.5 4.5 0 0 1 4.2-3.6"/></svg></div>
+          <div class="dash-stat-val" data-count="12">0</div>
+          <div class="dash-stat-label">Coaching Staff</div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+          <div class="dash-stat-val" data-count="4.8" data-prefix="₹" data-suffix="L">0</div>
+          <div class="dash-stat-label">Revenue — August</div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="dash-stat-val" data-count="18">0</div>
+          <div class="dash-stat-label">Pending Payments</div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="gap:20px;margin-bottom:24px;">
+        <div class="card" style="padding:0;">
+          <div class="card-header flex-between">
+            <span style="font-family:var(--font-display);font-weight:700;font-size:0.9rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Recent Enrollments</span>
+            <span onclick="gotoSection('students')" style="color:var(--gold);font-size:0.78rem;cursor:pointer;">View All →</span>
+          </div>
+          <div style="padding:16px;display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:var(--r-sm);background:rgba(201,162,39,0.06);">
+              <img src="images/gen_discipline_fielding.jpg" alt="Sara Thomas" style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0;" loading="lazy" />
+              <div style="flex:1;min-width:0;"><div style="font-size:0.85rem;font-weight:600;">Sara Thomas</div><div style="font-size:0.75rem;color:var(--text-muted);">Foundation U-14 • Joined Aug 16</div></div>
+              <span class="badge badge-gold" style="margin-left:auto;">New</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:var(--r-sm);">
+              <img src="images/gen_clinic_keeper.jpg" alt="Rohan Iyer" style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0;" loading="lazy" />
+              <div style="flex:1;min-width:0;"><div style="font-size:0.85rem;font-weight:600;">Rohan Iyer</div><div style="font-size:0.75rem;color:var(--text-muted);">Development U-16 • Joined Aug 14</div></div>
+              <span class="badge badge-gold" style="margin-left:auto;">New</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:var(--r-sm);">
+              <img src="images/gen_facility_classroom.jpg" alt="Ananya Rao" style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0;" loading="lazy" />
+              <div style="flex:1;min-width:0;"><div style="font-size:0.85rem;font-weight:600;">Ananya Rao</div><div style="font-size:0.75rem;color:var(--text-muted);">Women's Senior • Joined Aug 12</div></div>
+              <span class="badge badge-emerald" style="margin-left:auto;">Approved</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:var(--r-sm);">
+              <img src="images/gen_blog_trophy.jpg" alt="Kabir Singh" style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0;" loading="lazy" />
+              <div style="flex:1;min-width:0;"><div style="font-size:0.85rem;font-weight:600;">Kabir Singh</div><div style="font-size:0.75rem;color:var(--text-muted);">Elite Pathway U-19 • Joined Aug 10</div></div>
+              <span class="badge badge-emerald" style="margin-left:auto;">Approved</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:0;">
+          <div class="card-header flex-between">
+            <span style="font-family:var(--font-display);font-weight:700;font-size:0.9rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Pending Approvals</span>
+            <span onclick="gotoSection('trials')" style="color:var(--gold);font-size:0.78rem;cursor:pointer;">View All →</span>
+          </div>
+          <div style="padding:16px;display:flex;flex-direction:column;gap:10px;">
+            <div class="announcement-item" style="padding:12px;margin-bottom:0;" data-action-row>
+              <div class="announcement-icon" style="font-size:0.9rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+              <div style="flex:1;"><div style="font-size:0.82rem;font-weight:600;margin-bottom:2px;">Trial Request — Nikhil George (U-16)</div><div style="font-size:0.75rem;color:var(--text-muted);">Requested: Bowling Excellence Program</div></div>
+              <div data-actions style="display:flex;gap:6px;">
+                <button onclick="resolveAction(this, true)" class="btn btn-outline btn-sm" title="Approve request">Approve</button>
+                <button onclick="resolveAction(this, false)" class="btn btn-outline btn-sm" title="Decline request" style="color:var(--crimson-light);">Decline</button>
+              </div>
+            </div>
+            <div class="announcement-item" style="padding:12px;margin-bottom:0;" data-action-row>
+              <div class="announcement-icon" style="font-size:0.9rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+              <div style="flex:1;"><div style="font-size:0.82rem;font-weight:600;margin-bottom:2px;">Scholarship — Ishita Nair (U-14)</div><div style="font-size:0.75rem;color:var(--text-muted);">Merit scholarship application review</div></div>
+              <div data-actions style="display:flex;gap:6px;">
+                <button onclick="resolveAction(this, true)" class="btn btn-outline btn-sm" title="Approve application">Approve</button>
+                <button onclick="resolveAction(this, false)" class="btn btn-outline btn-sm" title="Decline application" style="color:var(--crimson-light);">Decline</button>
+              </div>
+            </div>
+            <div class="announcement-item" style="padding:12px;margin-bottom:0;" data-action-row>
+              <div class="announcement-icon" style="font-size:0.9rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 13.5 21 3.5"/><path d="M9 17l3.5-3.5 4 4L13 21z"/><circle cx="18.5" cy="18.5" r="3"/><path d="M16.2 20.4a4.5 4.5 0 0 1 4.2-3.6"/></svg></div>
+              <div style="flex:1;"><div style="font-size:0.82rem;font-weight:600;margin-bottom:2px;">Batch Transfer — Dev Patel (U-12 → U-14)</div><div style="font-size:0.75rem;color:var(--text-muted);">Recommended by Coach Arjun</div></div>
+              <div data-actions style="display:flex;gap:6px;">
+                <button onclick="resolveAction(this, true)" class="btn btn-outline btn-sm" title="Approve transfer">Approve</button>
+                <button onclick="resolveAction(this, false)" class="btn btn-outline btn-sm" title="Decline transfer" style="color:var(--crimson-light);">Decline</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:0;">
+        <div class="card-header flex-between">
+          <span style="font-family:var(--font-display);font-weight:700;font-size:0.9rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Today at the Academy</span>
+          <span onclick="gotoSection('batches')" style="color:var(--gold);font-size:0.78rem;cursor:pointer;">Full Schedule →</span>
+        </div>
+        <div class="card-body" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;">
+          <div style="padding:14px;border-radius:var(--r-md);background:rgba(201,162,39,0.06);">
+            <div style="font-family:var(--font-display);font-size:0.72rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;margin-bottom:4px;">6:00 – 8:30 AM</div>
+            <div style="font-size:0.88rem;font-weight:600;">Elite Pathway U-19</div>
+            <div style="font-size:0.76rem;color:var(--text-muted);">Coach Arjun • Net 3 / Ground</div>
+          </div>
+          <div style="padding:14px;border-radius:var(--r-md);background:rgba(8,127,91,0.08);">
+            <div style="font-family:var(--font-display);font-size:0.72rem;font-weight:700;color:var(--emerald-light);letter-spacing:0.08em;margin-bottom:4px;">4:00 – 6:00 PM</div>
+            <div style="font-size:0.88rem;font-weight:600;">Foundation U-14</div>
+            <div style="font-size:0.76rem;color:var(--text-muted);">Coach Kiran • Indoor Nets</div>
+          </div>
+          <div style="padding:14px;border-radius:var(--r-md);background:rgba(8,127,91,0.08);">
+            <div style="font-family:var(--font-display);font-size:0.72rem;font-weight:700;color:var(--emerald-light);letter-spacing:0.08em;margin-bottom:4px;">5:00 – 7:00 PM</div>
+            <div style="font-size:0.88rem;font-weight:600;">Development U-16</div>
+            <div style="font-size:0.76rem;color:var(--text-muted);">Coach Priya • Main Ground</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STUDENTS ─────────────────────────────── -->
+    <div class="dash-section" id="section-students">
+      <div class="dashboard-header">
+        <div><div class="dashboard-greeting"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Students</div><div class="greeting-sub">248 enrolled students across 8 batches</div></div>
+        <button onclick="showToast('Student list exported as CSV successfully!', 'success')" class="btn btn-outline btn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Export CSV</button>
+      </div>
+
+      <div class="card schedule-wrap" style="padding:0;overflow:auto;">
+        <div style="display:flex;align-items:center;gap:12px;padding:16px;border-bottom:1px solid var(--border-color);flex-wrap:wrap;">
+          <div style="position:relative;flex:1;min-width:220px;">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="position:absolute;top:50%;transform:translateY(-50%);left:12px;width:16px;height:16px;color:var(--text-muted);pointer-events:none;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" class="form-control" placeholder="Search students by name or batch…" oninput="filterTable(this, 'studentsTable')" style="padding-left:38px;" aria-label="Search students" />
+          </div>
+          <span style="font-size:0.78rem;color:var(--text-muted);" id="studentsCount">Showing 8 of 248</span>
+        </div>
+        <table class="schedule-table" id="studentsTable">
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Batch</th>
+              <th>Program</th>
+              <th>Joined</th>
+              <th>Fees Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="schedule-time">Aryan Mehta</td><td>Elite U-19</td><td>Batting</td><td>Jun 2023</td><td><span class="badge badge-emerald">Paid</span></td><td><button onclick="showToast('Opening Aryan Mehta’s profile…', 'info')" class="btn btn-outline btn-sm">View</button></td></tr>
+            <tr><td class="schedule-time">Sara Thomas</td><td>Foundation U-14</td><td>All-round</td><td>Aug 2026</td><td><span class="badge badge-emerald">Paid</span></td><td><button onclick="showToast('Opening Sara Thomas’s profile…', 'info')" class="btn btn-outline btn-sm">View</button></td></tr>
+            <tr><td class="schedule-time">Rohan Iyer</td><td>Development U-16</td><td>Bowling</td><td>Aug 2026</td><td><span class="badge badge-gold">Pending</span></td><td><button onclick="showToast('Opening Rohan Iyer’s profile…', 'info')" class="btn btn-outline btn-sm">View</button></td></tr>
+            <tr><td class="schedule-time">Dev Patel</td><td>Beginners U-12</td><td>All-round</td><td>Jul 2026</td><td><span class="badge badge-emerald">Paid</span></td><td><button onclick="showToast('Opening Dev Patel’s profile…', 'info')" class="btn btn-outline btn-sm">View</button></td></tr>
+            <tr><td class="schedule-time">Ananya Rao</td><td>Women's Senior</td><td>Batting</td><td>Aug 2026</td><td><span class="badge badge-emerald">Paid</span></td><td><button onclick="showToast('Opening Ananya Rao’s profile…', 'info')" class="btn btn-outline btn-sm">View</button></td></tr>
+            <tr><td class="schedule-time">Kabir Singh</td><td>Elite U-19</td><td>Fast Bowling</td><td>Aug 2026</td><td><span class="badge badge-crimson">Overdue</span></td><td><button onclick="showToast('Opening Kabir Singh’s profile…', 'info')" class="btn btn-outline btn-sm">View</button></td></tr>
+            <tr><td class="schedule-time">Ishita Nair</td><td>Foundation U-14</td><td>Wicket-keeping</td><td>May 2026</td><td><span class="badge badge-emerald">Paid</span></td><td><button onclick="showToast('Opening Ishita Nair’s profile…', 'info')" class="btn btn-outline btn-sm">View</button></td></tr>
+            <tr><td class="schedule-time">Aditya Menon</td><td>Weekend Adult</td><td>All-round</td><td>Apr 2026</td><td><span class="badge badge-gold">Pending</span></td><td><button onclick="showToast('Opening Aditya Menon’s profile…', 'info')" class="btn btn-outline btn-sm">View</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── COACHES ──────────────────────────────── -->
+    <div class="dash-section" id="section-coaches">
+      <div class="dashboard-header">
+        <div><div class="dashboard-greeting"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 13.5 21 3.5"/><path d="M9 17l3.5-3.5 4 4L13 21z"/><circle cx="18.5" cy="18.5" r="3"/><path d="M16.2 20.4a4.5 4.5 0 0 1 4.2-3.6"/></svg> Coaches</div><div class="greeting-sub">12 coaching staff members — 4 shown below</div></div>
+        <button onclick="showToast('Add coach form coming soon!', 'info')" class="btn btn-primary btn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg> Add Coach</button>
+      </div>
+
+      <div class="grid-2" style="gap:20px;">
+        <div class="card" style="padding:24px;">
+          <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px;flex-wrap:wrap;">
+            <img src="images/gen_coach_arjun.jpg" alt="Arjun Sharma" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--border-gold);flex-shrink:0;" loading="lazy" />
+            <div style="flex:1;">
+              <div style="font-family:var(--font-display);font-weight:700;">Arjun Sharma</div>
+              <div style="font-size:0.78rem;color:var(--gold);font-weight:600;">Head Coach — Batting</div>
+            </div>
+            <span class="badge badge-gold"><svg class="ic ic-fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg> 4.9</span>
+          </div>
+          <div style="display:flex;gap:16px;font-size:0.78rem;color:var(--text-muted);margin-bottom:16px;flex-wrap:wrap;">
+            <span><strong style="color:var(--text-primary);">3</strong> Batches</span>
+            <span><strong style="color:var(--text-primary);">64</strong> Students</span>
+            <span>Since 2019</span>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <button onclick="showToast('Opening Arjun Sharma’s full profile…', 'info')" class="btn btn-outline btn-sm" style="flex:1;justify-content:center;">View Profile</button>
+            <button onclick="showToast('Message sent to Coach Arjun.', 'success')" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Message</button>
+          </div>
+        </div>
+
+        <div class="card" style="padding:24px;">
+          <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px;flex-wrap:wrap;">
+            <img src="images/gen_coach_sunil.jpg" alt="Sunil Kumar" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--border-gold);flex-shrink:0;" loading="lazy" />
+            <div style="flex:1;">
+              <div style="font-family:var(--font-display);font-weight:700;">Sunil Kumar</div>
+              <div style="font-size:0.78rem;color:var(--gold);font-weight:600;">Strength &amp; Conditioning</div>
+            </div>
+            <span class="badge badge-gold"><svg class="ic ic-fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg> 4.8</span>
+          </div>
+          <div style="display:flex;gap:16px;font-size:0.78rem;color:var(--text-muted);margin-bottom:16px;flex-wrap:wrap;">
+            <span><strong style="color:var(--text-primary);">5</strong> Batches</span>
+            <span><strong style="color:var(--text-primary);">112</strong> Students</span>
+            <span>Since 2018</span>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <button onclick="showToast('Opening Sunil Kumar’s full profile…', 'info')" class="btn btn-outline btn-sm" style="flex:1;justify-content:center;">View Profile</button>
+            <button onclick="showToast('Message sent to Coach Sunil.', 'success')" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Message</button>
+          </div>
+        </div>
+
+        <div class="card" style="padding:24px;">
+          <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px;flex-wrap:wrap;">
+            <img src="images/gen_coach_priya.jpg" alt="Priya Lakshmi" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--border-gold);flex-shrink:0;" loading="lazy" />
+            <div style="flex:1;">
+              <div style="font-family:var(--font-display);font-weight:700;">Priya Lakshmi</div>
+              <div style="font-size:0.78rem;color:var(--gold);font-weight:600;">Fielding Coach</div>
+            </div>
+            <span class="badge badge-gold"><svg class="ic ic-fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg> 4.7</span>
+          </div>
+          <div style="display:flex;gap:16px;font-size:0.78rem;color:var(--text-muted);margin-bottom:16px;flex-wrap:wrap;">
+            <span><strong style="color:var(--text-primary);">4</strong> Batches</span>
+            <span><strong style="color:var(--text-primary);">58</strong> Students</span>
+            <span>Since 2021</span>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <button onclick="showToast('Opening Priya Lakshmi’s full profile…', 'info')" class="btn btn-outline btn-sm" style="flex:1;justify-content:center;">View Profile</button>
+            <button onclick="showToast('Message sent to Coach Priya.', 'success')" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Message</button>
+          </div>
+        </div>
+
+        <div class="card" style="padding:24px;">
+          <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px;flex-wrap:wrap;">
+            <img src="images/gen_coach_ravi.jpg" alt="Kiran Nair" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--border-gold);flex-shrink:0;" loading="lazy" />
+            <div style="flex:1;">
+              <div style="font-family:var(--font-display);font-weight:700;">Kiran Nair</div>
+              <div style="font-size:0.78rem;color:var(--gold);font-weight:600;">Bowling Coach</div>
+            </div>
+            <span class="badge badge-gold"><svg class="ic ic-fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg> 4.8</span>
+          </div>
+          <div style="display:flex;gap:16px;font-size:0.78rem;color:var(--text-muted);margin-bottom:16px;flex-wrap:wrap;">
+            <span><strong style="color:var(--text-primary);">3</strong> Batches</span>
+            <span><strong style="color:var(--text-primary);">41</strong> Students</span>
+            <span>Since 2020</span>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <button onclick="showToast('Opening Kiran Nair’s full profile…', 'info')" class="btn btn-outline btn-sm" style="flex:1;justify-content:center;">View Profile</button>
+            <button onclick="showToast('Message sent to Coach Kiran.', 'success')" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BATCHES ──────────────────────────────── -->
+    <div class="dash-section" id="section-batches">
+      <div class="dashboard-header"><div><div class="dashboard-greeting"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> Batches &amp; Schedule</div><div class="greeting-sub">Weekly timetable — August 2026</div></div></div>
+
+      <div class="card schedule-wrap" style="padding:0;overflow:auto;">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Time</th>
+              <th>Batch</th>
+              <th>Coach</th>
+              <th>Venue</th>
+              <th>Capacity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="schedule-time">Mon / Thu</td><td>6:00 – 8:30 AM</td><td>Elite Pathway U-19</td><td>Coach Arjun</td><td>Net 3 / Ground</td><td><span class="badge badge-gold">Full — 28/28</span></td></tr>
+            <tr><td class="schedule-time">Mon / Wed</td><td>4:00 – 6:00 PM</td><td>Foundation U-14</td><td>Coach Kiran</td><td>Indoor Nets</td><td><span class="badge badge-emerald">Open — 34/40</span></td></tr>
+            <tr><td class="schedule-time">Tue / Fri</td><td>5:00 – 7:00 PM</td><td>Development U-16</td><td>Coach Priya</td><td>Main Ground</td><td><span class="badge badge-emerald">Open — 26/32</span></td></tr>
+            <tr><td class="schedule-time">Wed / Sat</td><td>6:30 – 8:00 AM</td><td>Beginners U-12</td><td>Coach Priya</td><td>Turf Nets</td><td><span class="badge badge-gold">Almost Full — 29/30</span></td></tr>
+            <tr><td class="schedule-time">Tue / Thu</td><td>6:30 – 8:30 PM</td><td>Women's Senior</td><td>Coach Arjun</td><td>Main Ground</td><td><span class="badge badge-emerald">Open — 18/24</span></td></tr>
+            <tr><td class="schedule-time">Sat / Sun</td><td>7:00 – 9:00 AM</td><td>Bowling Excellence</td><td>Coach Kiran</td><td>Indoor Nets</td><td><span class="badge badge-slate">Waitlist — 20/16</span></td></tr>
+            <tr><td class="schedule-time">Sat / Sun</td><td>5:00 – 7:00 PM</td><td>Weekend Adult</td><td>Coach Sunil</td><td>Ground / Gym</td><td><span class="badge badge-emerald">Open — 22/30</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── FEES ─────────────────────────────────── -->
+    <div class="dash-section" id="section-fees">
+      <div class="dashboard-header"><div><div class="dashboard-greeting"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg> Fees &amp; Payments</div><div class="greeting-sub">August 2026 collection summary</div></div></div>
+
+      <div class="dash-stats" style="margin-bottom:24px;">
+        <div class="dash-stat-card"><div class="dash-stat-icon"><svg class="ic ic-fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M9 11l3 3L22 4"/></svg></div><div class="dash-stat-val" data-count="4.8" data-prefix="₹" data-suffix="L">0</div><div class="dash-stat-label">Collected</div></div>
+        <div class="dash-stat-card"><div class="dash-stat-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="dash-stat-val" data-count="1.2" data-prefix="₹" data-suffix="L">0</div><div class="dash-stat-label">Pending</div></div>
+        <div class="dash-stat-card"><div class="dash-stat-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg></div><div class="dash-stat-val" data-count="9">0</div><div class="dash-stat-label">Overdue Accounts</div></div>
+        <div class="dash-stat-card"><div class="dash-stat-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div><div class="dash-stat-val" data-count="12">0</div><div class="dash-stat-label">Scholarships Active</div></div>
+      </div>
+
+      <div class="card schedule-wrap" style="padding:0;overflow:auto;">
+        <table class="schedule-table" id="feesTable">
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Plan</th>
+              <th>Amount</th>
+              <th>Due Date</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="schedule-time">Aryan Mehta</td><td>Elite Monthly</td><td>₹6,500</td><td>Sep 01</td><td><span class="badge badge-emerald">Paid</span></td><td><span style="font-size:0.75rem;color:var(--text-muted);">Settled ✓</span></td></tr>
+            <tr><td class="schedule-time">Rohan Iyer</td><td>Development Quarterly</td><td>₹15,000</td><td>Aug 20</td><td><span class="badge badge-gold">Pending</span></td><td><span class="fee-actions" style="display:inline-flex;gap:6px;"><button onclick="remindFee(this)" class="btn btn-outline btn-sm">Remind</button><button onclick="markFeePaid(this)" class="btn btn-primary btn-sm">Mark Paid</button></span></td></tr>
+            <tr><td class="schedule-time">Kabir Singh</td><td>Elite Monthly</td><td>₹6,500</td><td>Aug 05</td><td><span class="badge badge-crimson">Overdue</span></td><td><span class="fee-actions" style="display:inline-flex;gap:6px;"><button onclick="remindFee(this)" class="btn btn-outline btn-sm">Remind</button><button onclick="markFeePaid(this)" class="btn btn-primary btn-sm">Mark Paid</button></span></td></tr>
+            <tr><td class="schedule-time">Aditya Menon</td><td>Weekend Monthly</td><td>₹3,000</td><td>Aug 25</td><td><span class="badge badge-gold">Pending</span></td><td><span class="fee-actions" style="display:inline-flex;gap:6px;"><button onclick="remindFee(this)" class="btn btn-outline btn-sm">Remind</button><button onclick="markFeePaid(this)" class="btn btn-primary btn-sm">Mark Paid</button></span></td></tr>
+            <tr><td class="schedule-time">Sara Thomas</td><td>Foundation Quarterly</td><td>₹12,000</td><td>Sep 01</td><td><span class="badge badge-emerald">Paid</span></td><td><span style="font-size:0.75rem;color:var(--text-muted);">Settled ✓</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── ATTENDANCE ───────────────────────────── -->
+    <div class="dash-section" id="section-attendance">
+      <div class="dashboard-header"><div><div class="dashboard-greeting"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M9 11l3 3L22 4"/></svg> Attendance Overview</div><div class="greeting-sub">Today, August 17, 2026 — 81% academy-wide attendance</div></div></div>
+
+      <div class="dash-stats" style="margin-bottom:24px;">
+        <div class="dash-stat-card"><div class="dash-stat-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M9 11l3 3L22 4"/></svg></div><div class="dash-stat-val" data-count="201">0</div><div class="dash-stat-label">Present</div></div>
+        <div class="dash-stat-card"><div class="dash-stat-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg></div><div class="dash-stat-val" data-count="18">0</div><div class="dash-stat-label">Absent</div></div>
+        <div class="dash-stat-card"><div class="dash-stat-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="dash-stat-val" data-count="9">0</div><div class="dash-stat-label">Late</div></div>
+        <div class="dash-stat-card"><div class="dash-stat-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div class="dash-stat-val" data-count="20">0</div><div class="dash-stat-label">On Leave / Rest Day</div></div>
+      </div>
+
+      <div class="grid-2" style="gap:20px;">
+        <div class="card" style="padding:32px;text-align:center;">
+          <h4 style="margin-bottom:20px;">Today's Attendance Rate</h4>
+          <div class="attendance-ring">
+            <svg width="120" height="120" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="50" fill="none" stroke="var(--bg-secondary)" stroke-width="12"/>
+              <circle cx="60" cy="60" r="50" fill="none" stroke="var(--gold)" stroke-width="12"
+                stroke-dasharray="280" stroke-dashoffset="53" stroke-linecap="round"/>
+            </svg>
+            <div class="attendance-ring-text"><span>81%</span><small>Present</small></div>
+          </div>
+          <p style="font-size:0.85rem;color:var(--text-muted);">Target: 90% • Monday morning sessions in progress</p>
+        </div>
+
+        <div class="card" style="padding:28px;">
+          <h4 style="margin-bottom:20px;">Attendance by Batch</h4>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div data-progress="92">
+              <div style="display:flex;justify-content:space-between;font-size:0.82rem;font-weight:600;margin-bottom:6px;"><span>Elite Pathway U-19</span><span style="color:var(--emerald-light);">92%</span></div>
+              <div class="progress-bar"><div class="progress-fill"></div></div>
+            </div>
+            <div data-progress="85">
+              <div style="display:flex;justify-content:space-between;font-size:0.82rem;font-weight:600;margin-bottom:6px;"><span>Foundation U-14</span><span style="color:var(--emerald-light);">85%</span></div>
+              <div class="progress-bar"><div class="progress-fill"></div></div>
+            </div>
+            <div data-progress="78">
+              <div style="display:flex;justify-content:space-between;font-size:0.82rem;font-weight:600;margin-bottom:6px;"><span>Development U-16</span><span style="color:var(--gold);">78%</span></div>
+              <div class="progress-bar"><div class="progress-fill" style="background:linear-gradient(90deg,var(--gold),var(--gold-light));"></div></div>
+            </div>
+            <div data-progress="70">
+              <div style="display:flex;justify-content:space-between;font-size:0.82rem;font-weight:600;margin-bottom:6px;"><span>Beginners U-12</span><span style="color:var(--gold);">70%</span></div>
+              <div class="progress-bar"><div class="progress-fill" style="background:linear-gradient(90deg,var(--gold),var(--gold-light));"></div></div>
+            </div>
+            <div data-progress="64">
+              <div style="display:flex;justify-content:space-between;font-size:0.82rem;font-weight:600;margin-bottom:6px;"><span>Weekend Adult</span><span style="color:var(--crimson-light);">64%</span></div>
+              <div class="progress-bar"><div class="progress-fill" style="background:linear-gradient(90deg,var(--crimson),var(--crimson-light));"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MATCHES ──────────────────────────────── -->
+    <div class="dash-section" id="section-matches">
+      <div class="dashboard-header">
+        <div><div class="dashboard-greeting"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 21h17"/><path d="M5.5 21V9.5A6.5 6.5 0 0 1 18.5 9.5V21"/><path d="M3.5 11h17"/><path d="M6 8.5 12 5.5l6 3"/></svg> Matches &amp; Events</div><div class="greeting-sub">Scheduled fixtures — August to September 2026</div></div>
+        <button onclick="showToast('Schedule match form coming soon!', 'info')" class="btn btn-primary btn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg> Schedule Match</button>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="match-card">
+          <div class="match-team">
+            <div style="font-size:2rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 13.5 21 3.5"/><path d="M9 17l3.5-3.5 4 4L13 21z"/><circle cx="18.5" cy="18.5" r="3"/><path d="M16.2 20.4a4.5 4.5 0 0 1 4.2-3.6"/></svg></div>
+            <div class="match-team-name">EliteStrike U-19</div>
+          </div>
+          <div>
+            <div class="match-vs">VS</div>
+            <div class="match-info">Aug 20 • 9:00 AM</div>
+            <div class="match-info">T20 • Main Ground</div>
+            <div style="margin-top:6px;"><span class="badge badge-emerald">Confirmed</span></div>
+            <div style="display:flex;gap:6px;margin-top:10px;justify-content:center;">
+              <button onclick="showToast('Match editor coming soon!', 'info')" class="btn btn-outline btn-sm">Edit</button>
+              <button onclick="cancelMatch(this)" class="btn btn-outline btn-sm" style="color:var(--crimson-light);">Cancel</button>
+            </div>
+          </div>
+          <div class="match-team">
+            <div style="font-size:2rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="match-team-name">SSN Cricket Club</div>
+          </div>
+        </div>
+
+        <div class="match-card">
+          <div class="match-team">
+            <div style="font-size:2rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 13.5 21 3.5"/><path d="M9 17l3.5-3.5 4 4L13 21z"/><circle cx="18.5" cy="18.5" r="3"/><path d="M16.2 20.4a4.5 4.5 0 0 1 4.2-3.6"/></svg></div>
+            <div class="match-team-name">EliteStrike U-19</div>
+          </div>
+          <div>
+            <div class="match-vs">VS</div>
+            <div class="match-info">Sep 03 • 8:00 AM</div>
+            <div class="match-info">50-Over • Main Ground</div>
+            <div style="margin-top:6px;"><span class="badge badge-gold">Awaiting Confirmation</span></div>
+            <div style="display:flex;gap:6px;margin-top:10px;justify-content:center;">
+              <button onclick="confirmMatch(this)" class="btn btn-outline btn-sm">Confirm</button>
+              <button onclick="cancelMatch(this)" class="btn btn-outline btn-sm" style="color:var(--crimson-light);">Cancel</button>
+            </div>
+          </div>
+          <div class="match-team">
+            <div style="font-size:2rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
+            <div class="match-team-name">MCC Chennai</div>
+          </div>
+        </div>
+
+        <div class="match-card">
+          <div class="match-team">
+            <div style="font-size:2rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 13.5 21 3.5"/><path d="M9 17l3.5-3.5 4 4L13 21z"/><circle cx="18.5" cy="18.5" r="3"/><path d="M16.2 20.4a4.5 4.5 0 0 1 4.2-3.6"/></svg></div>
+            <div class="match-team-name">EliteStrike U-16</div>
+          </div>
+          <div>
+            <div class="match-vs">VS</div>
+            <div class="match-info">Sep 14 • 9:00 AM</div>
+            <div class="match-info">T20 • Away</div>
+            <div style="margin-top:6px;"><span class="badge badge-slate">Provisional</span></div>
+            <div style="display:flex;gap:6px;margin-top:10px;justify-content:center;">
+              <button onclick="confirmMatch(this)" class="btn btn-outline btn-sm">Confirm</button>
+              <button onclick="cancelMatch(this)" class="btn btn-outline btn-sm" style="color:var(--crimson-light);">Cancel</button>
+            </div>
+          </div>
+          <div class="match-team">
+            <div style="font-size:2rem;"><svg class="ic ic-fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+            <div class="match-team-name">Chepauk Super Gillies</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TRIALS ───────────────────────────────── -->
+    <div class="dash-section" id="section-trials">
+      <div class="dashboard-header"><div><div class="dashboard-greeting"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Trial Requests</div><div class="greeting-sub">5 players awaiting trial scheduling</div></div></div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="announcement-item" style="padding:20px;border-color:var(--border-gold);" data-action-row>
+          <div class="announcement-icon" style="background:rgba(201,162,39,0.15);font-size:1.2rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div style="flex:1;">
+            <div style="font-family:var(--font-display);font-weight:700;margin-bottom:6px;">Nikhil George — 15 yrs, Right-arm Pacer</div>
+            <p style="font-size:0.85rem;margin:0 0 10px;">Requested: Bowling Excellence Program • Preferred slot: Aug 23, morning</p>
+            <div data-actions style="display:flex;gap:8px;flex-wrap:wrap;">
+              <button onclick="resolveAction(this, true)" class="btn btn-primary btn-sm">Schedule Trial</button>
+              <button onclick="resolveAction(this, false)" class="btn btn-outline btn-sm" style="color:var(--crimson-light);">Reject</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="announcement-item" style="padding:20px;" data-action-row>
+          <div class="announcement-icon" style="font-size:1.2rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div style="flex:1;">
+            <div style="font-family:var(--font-display);font-weight:700;margin-bottom:6px;">Farhan Ahmed — 17 yrs, Top-order Batsman</div>
+            <p style="font-size:0.85rem;margin:0 0 10px;">Requested: Elite Pathway U-19 • Preferred slot: Aug 24, evening</p>
+            <div data-actions style="display:flex;gap:8px;flex-wrap:wrap;">
+              <button onclick="resolveAction(this, true)" class="btn btn-primary btn-sm">Schedule Trial</button>
+              <button onclick="resolveAction(this, false)" class="btn btn-outline btn-sm" style="color:var(--crimson-light);">Reject</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="announcement-item" style="padding:20px;" data-action-row>
+          <div class="announcement-icon" style="font-size:1.2rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div style="flex:1;">
+            <div style="font-family:var(--font-display);font-weight:700;margin-bottom:6px;">Meera Suresh — 13 yrs, Wicket-keeper</div>
+            <p style="font-size:0.85rem;margin:0 0 10px;">Requested: Foundation U-14 • Preferred slot: Aug 30, morning</p>
+            <div data-actions style="display:flex;gap:8px;flex-wrap:wrap;">
+              <button onclick="resolveAction(this, true)" class="btn btn-primary btn-sm">Schedule Trial</button>
+              <button onclick="resolveAction(this, false)" class="btn btn-outline btn-sm" style="color:var(--crimson-light);">Reject</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="announcement-item" style="padding:20px;" data-action-row>
+          <div class="announcement-icon" style="font-size:1.2rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div style="flex:1;">
+            <div style="font-family:var(--font-display);font-weight:700;margin-bottom:6px;">Joseph Raj — 22 yrs, All-rounder</div>
+            <p style="font-size:0.85rem;margin:0 0 10px;">Requested: Weekend Adult • Preferred slot: Sep 06, evening</p>
+            <div data-actions style="display:flex;gap:8px;flex-wrap:wrap;">
+              <button onclick="resolveAction(this, true)" class="btn btn-primary btn-sm">Schedule Trial</button>
+              <button onclick="resolveAction(this, false)" class="btn btn-outline btn-sm" style="color:var(--crimson-light);">Reject</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="announcement-item" style="padding:20px;" data-action-row>
+          <div class="announcement-icon" style="font-size:1.2rem;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div style="flex:1;">
+            <div style="font-family:var(--font-display);font-weight:700;margin-bottom:6px;">Tanvi Deshmukh — 16 yrs, Left-arm Spinner</div>
+            <p style="font-size:0.85rem;margin:0 0 10px;">Requested: Development U-16 / Women's Senior • Flexible slots</p>
+            <div data-actions style="display:flex;gap:8px;flex-wrap:wrap;">
+              <button onclick="resolveAction(this, true)" class="btn btn-primary btn-sm">Schedule Trial</button>
+              <button onclick="resolveAction(this, false)" class="btn btn-outline btn-sm" style="color:var(--crimson-light);">Reject</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ANNOUNCEMENTS ────────────────────────── -->
+    <div class="dash-section" id="section-announcements">
+      <div class="dashboard-header"><div><div class="dashboard-greeting"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg> Announcements</div><div class="greeting-sub">Publish notices to students and parents</div></div></div>
+
+      <div class="card" style="padding:28px;margin-bottom:24px;max-width:720px;">
+        <h4 style="margin-bottom:20px;">New Announcement</h4>
+        <form onsubmit="return publishAnnouncement(event)">
+          <div class="form-group">
+            <label class="form-label" for="annTitle">Title</label>
+            <input type="text" id="annTitle" class="form-control" placeholder="e.g. Friday session timing change" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="annMsg">Message</label>
+            <textarea id="annMsg" class="form-control" rows="3" placeholder="Write the announcement details…" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="annAudience">Audience</label>
+            <select id="annAudience" class="form-control">
+              <option>All Students &amp; Parents</option>
+              <option>Students Only</option>
+              <option>Coaches Only</option>
+              <option>Elite Pathway U-19</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Publish Announcement</button>
+        </form>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;" id="announcementList">
+        <div class="announcement-item" style="padding:20px;border-color:var(--border-gold);">
+          <div class="announcement-icon" style="background:rgba(201,162,39,0.15);"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+          <div style="flex:1;"><div style="font-family:var(--font-display);font-weight:700;margin-bottom:6px;">TNCA State Trials — Register by Aug 20</div><p style="font-size:0.85rem;margin:0;">State U-19 trials are on Aug 25. Registration closes Aug 20. Contact Coach Arjun immediately if interested.</p></div>
+          <span class="badge badge-gold" style="flex-shrink:0;">Pinned</span>
+        </div>
+        <div class="announcement-item" style="padding:20px;border-color:var(--border-gold);">
+          <div class="announcement-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+          <div style="flex:1;"><div style="font-family:var(--font-display);font-weight:700;margin-bottom:6px;">Friday Session Time Change</div><p style="font-size:0.85rem;margin:0;">This Friday (Aug 21), the morning batting session is moved from 6:00 AM to 7:30 AM due to ground maintenance work.</p></div>
+        </div>
+        <div class="announcement-item" style="padding:20px;">
+          <div class="announcement-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg></div>
+          <div style="flex:1;"><div style="font-family:var(--font-display);font-weight:700;margin-bottom:6px;">New Season Kit Distribution</div><p style="font-size:0.85rem;margin:0;">2026-27 season kits are ready for collection from the academy office. Please collect by August 22.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── INQUIRIES ────────────────────────────── -->
+    <div class="dash-section" id="section-inquiries">
+      <div class="dashboard-header"><div><div class="dashboard-greeting"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Contact Inquiries</div><div class="greeting-sub">3 new inquiries from the website contact form</div></div></div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="announcement-item" style="padding:20px;border-color:var(--border-gold);" data-action-row>
+          <div class="announcement-icon" style="background:rgba(201,162,39,0.15);"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+              <span style="font-family:var(--font-display);font-weight:700;">Ramya Krishnan</span>
+              <span class="badge badge-gold">Admission Query</span>
+              <span style="font-size:0.75rem;color:var(--text-muted);margin-left:auto;">Today • 9:42 AM</span>
+            </div>
+            <p style="font-size:0.85rem;margin:0 0 10px;">"Hi, my son is 11 years old and a complete beginner. I'd like to know about the Beginners U-12 batch timings, fees and whether transport is available from Adyar."</p>
+            <div data-actions style="display:flex;gap:8px;flex-wrap:wrap;">
+              <button onclick="showToast('Reply composer opened for ramya.k@email.com', 'info')" class="btn btn-outline btn-sm">Reply</button>
+              <button onclick="resolveInquiry(this)" class="btn btn-primary btn-sm">Mark Resolved</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="announcement-item" style="padding:20px;" data-action-row>
+          <div class="announcement-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+              <span style="font-family:var(--font-display);font-weight:700;">Suresh Babu — SportsGear India</span>
+              <span class="badge badge-emerald">Sponsorship</span>
+              <span style="font-size:0.75rem;color:var(--text-muted);margin-left:auto;">Yesterday • 4:18 PM</span>
+            </div>
+            <p style="font-size:0.85rem;margin:0 0 10px;">"We'd love to explore sponsoring your U-19 team kits for the upcoming season. Can we set up a call with the management this week?"</p>
+            <div data-actions style="display:flex;gap:8px;flex-wrap:wrap;">
+              <button onclick="showToast('Reply composer opened for suresh@sportsgear.in', 'info')" class="btn btn-outline btn-sm">Reply</button>
+              <button onclick="resolveInquiry(this)" class="btn btn-primary btn-sm">Mark Resolved</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="announcement-item" style="padding:20px;" data-action-row>
+          <div class="announcement-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+              <span style="font-family:var(--font-display);font-weight:700;">Deepa Venkatesh</span>
+              <span class="badge badge-gold">Summer Camp</span>
+              <span style="font-size:0.75rem;color:var(--text-muted);margin-left:auto;">Aug 15 • 11:05 AM</span>
+            </div>
+            <p style="font-size:0.85rem;margin:0 0 10px;">"Is the summer camp open for girls aged 14? Also, are one-week trial passes available before enrolling for the full program?"</p>
+            <div data-actions style="display:flex;gap:8px;flex-wrap:wrap;">
+              <button onclick="showToast('Reply composer opened for deepa.v@email.com', 'info')" class="btn btn-outline btn-sm">Reply</button>
+              <button onclick="resolveInquiry(this)" class="btn btn-primary btn-sm">Mark Resolved</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PROFILE ──────────────────────────────── -->
+    <div class="dash-section" id="section-profile">
+      <div class="dashboard-header"><div><div class="dashboard-greeting"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> My Profile</div></div></div>
+
+      <div class="grid-2" style="gap:20px;align-items:start;">
+        <div class="card" style="padding:32px;text-align:center;">
+          <img src="images/gen_about_coach.jpg" style="width:100px;height:100px;border-radius:50%;object-fit:cover;border:4px solid var(--gold);margin:0 auto 16px;" alt="Profile Photo" loading="lazy" />
+          <h3 style="margin-bottom:4px;">Vikram Rao</h3>
+          <div style="color:var(--gold);font-size:0.85rem;font-weight:600;margin-bottom:16px;">Academy Director</div>
+          <div class="badge badge-gold" style="margin-bottom:20px;">Full Administrative Access</div>
+          <button onclick="showToast('Photo upload feature coming soon!', 'info')" class="btn btn-outline btn-sm w-full" style="justify-content:center;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Change Photo</button>
+        </div>
+
+        <div class="card" style="padding:28px;">
+          <h4 style="margin-bottom:20px;">Personal Information</h4>
+          <div class="profile-form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group" style="margin-bottom:0;"><label class="form-label">Full Name</label><input class="form-control" value="Vikram Rao" /></div>
+            <div class="form-group" style="margin-bottom:0;"><label class="form-label">Designation</label><select class="form-control"><option selected>Academy Director</option><option>Operations Manager</option><option>Head Coach</option></select></div>
+            <div class="form-group" style="margin-bottom:0;"><label class="form-label">Phone</label><input class="form-control" value="+91 98450 22334" /></div>
+            <div class="form-group" style="margin-bottom:0;"><label class="form-label">Email</label><input class="form-control" type="email" value="vikram.rao@elitestrike.in" /></div>
+            <div class="form-group" style="margin-bottom:0;"><label class="form-label">Office Location</label><input class="form-control" value="Main Pavilion, Ground Floor" /></div>
+            <div class="form-group" style="margin-bottom:0;"><label class="form-label">Access Level</label><select class="form-control"><option selected>Owner — Full Access</option><option>Manager — Limited</option></select></div>
+          </div>
+          <div style="margin-top:20px;"><button onclick="showToast('Admin profile saved successfully!', 'success')" class="btn btn-primary"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg> Save Changes</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SETTINGS ─────────────────────────────── -->
+    <div class="dash-section" id="section-settings">
+      <div class="dashboard-header"><div><div class="dashboard-greeting"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Settings</div></div></div>
+
+      <div class="card" style="padding:28px;max-width:640px;">
+        <h4 style="margin-bottom:20px;">Academy Preferences</h4>
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div class="setting-row" style="display:flex;align-items:center;justify-content:space-between;padding:16px;background:var(--bg-secondary);border-radius:var(--r-md);">
+            <div><div style="font-weight:600;font-size:0.9rem;margin-bottom:2px;">Dark Mode</div><div style="font-size:0.8rem;color:var(--text-muted);">Toggle between dark and light theme</div></div>
+            <button class="theme-toggle control-btn" style="width:auto;height:auto;padding:8px 16px;border-radius:var(--r-full);font-size:0.8rem;">Toggle Theme</button>
+          </div>
+          <div class="setting-row" style="display:flex;align-items:center;justify-content:space-between;padding:16px;background:var(--bg-secondary);border-radius:var(--r-md);">
+            <div><div style="font-weight:600;font-size:0.9rem;margin-bottom:2px;">Language Direction</div><div style="font-size:0.8rem;color:var(--text-muted);">Switch between LTR and RTL layout</div></div>
+            <button class="rtl-toggle control-btn" style="width:auto;height:auto;padding:8px 16px;border-radius:var(--r-full);font-size:0.8rem;">عر / EN</button>
+          </div>
+          <div class="setting-row" style="display:flex;align-items:center;justify-content:space-between;padding:16px;background:var(--bg-secondary);border-radius:var(--r-md);">
+            <div><div style="font-weight:600;font-size:0.9rem;margin-bottom:2px;">Payment Alert Emails</div><div style="font-size:0.8rem;color:var(--text-muted);">Get notified when fees are overdue</div></div>
+            <label style="position:relative;width:44px;height:24px;cursor:pointer;"><input type="checkbox" checked style="opacity:0;width:0;height:0;" /><span style="position:absolute;inset:0;background:var(--emerald);border-radius:12px;"></span></label>
+          </div>
+          <div class="setting-row" style="display:flex;align-items:center;justify-content:space-between;padding:16px;background:var(--bg-secondary);border-radius:var(--r-md);">
+            <div><div style="font-weight:600;font-size:0.9rem;margin-bottom:2px;">Maintenance Mode</div><div style="font-size:0.8rem;color:var(--text-muted);">Show maintenance page to public visitors</div></div>
+            <label style="position:relative;width:44px;height:24px;cursor:pointer;"><input type="checkbox" style="opacity:0;width:0;height:0;" /><span style="position:absolute;inset:0;background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;"></span></label>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <button onclick="showToast('Settings saved!', 'success')" class="btn btn-primary">Save Settings</button>
+            <button onclick="showToast('Database backup started — you will be notified when ready.', 'info')" class="btn btn-outline"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Backup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+<script src="js/main.js"></script>
+<script>
+function showSection(id, clickedEl) {
+  document.querySelectorAll('.dash-section').forEach(s => s.classList.remove('active'));
+  const targetSection = document.getElementById('section-' + id);
+  if (targetSection) targetSection.classList.add('active');
+  document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+  if (clickedEl) clickedEl.classList.add('active');
+
+  if (window.innerWidth <= 1024) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  if (typeof initProgressBars === 'function') initProgressBars();
+  if (typeof initCounters === 'function') initCounters();
+}
+
+function gotoSection(id) {
+  const link = document.querySelector('.sidebar-link[data-section="' + id + '"]');
+  showSection(id, link);
+}
+
+function initProgressBars() {
+  document.querySelectorAll('[data-progress]').forEach(bar => {
+    const fill = bar.querySelector('.progress-fill');
+    if (fill && !fill.dataset.animated) {
+      fill.dataset.animated = '1';
+      setTimeout(() => { fill.style.width = bar.dataset.progress + '%'; }, 200);
+    }
+  });
+}
+
+function filterTable(input, tableId) {
+  const term = input.value.trim().toLowerCase();
+  let visible = 0;
+  document.querySelectorAll('#' + tableId + ' tbody tr').forEach(tr => {
+    const match = tr.textContent.toLowerCase().includes(term);
+    tr.style.display = match ? '' : 'none';
+    if (match) visible++;
+  });
+  const count = document.getElementById('studentsCount');
+  if (count && tableId === 'studentsTable') {
+    count.textContent = term ? ('Found ' + visible + ' matching student' + (visible === 1 ? '' : 's')) : 'Showing 8 of 248';
+  }
+}
+
+function resolveAction(btn, approve) {
+  const row = btn.closest('[data-action-row]');
+  if (!row || row.dataset.resolving) return;
+  row.dataset.resolving = '1';
+  const actions = row.querySelector('[data-actions]');
+  if (approve) {
+    if (actions) actions.outerHTML = '<span class="badge badge-emerald">Approved ✓</span>';
+    showToast('Request approved and scheduled.', 'success');
+  } else {
+    row.style.transition = 'opacity .35s ease, transform .35s ease';
+    requestAnimationFrame(() => {
+      row.style.opacity = '0';
+      row.style.transform = 'translateX(24px)';
+    });
+    setTimeout(() => row.remove(), 380);
+    showToast('Request rejected and removed.', 'warning');
+  }
+}
+
+function remindFee(btn) {
+  btn.disabled = true;
+  btn.textContent = 'Reminder Sent ✓';
+  showToast('Payment reminder email sent to the parent.', 'success');
+}
+
+function markFeePaid(btn) {
+  const tr = btn.closest('tr');
+  if (!tr) return;
+  const statusBadge = tr.querySelector('td:nth-child(5) .badge');
+  if (statusBadge) statusBadge.outerHTML = '<span class="badge badge-emerald">Paid</span>';
+  const actionCell = btn.closest('.fee-actions');
+  if (actionCell) actionCell.innerHTML = '<span style="font-size:0.75rem;color:var(--text-muted);">Settled ✓</span>';
+  showToast('Payment marked as received.', 'success');
+}
+
+function confirmMatch(btn) {
+  const card = btn.closest('.match-card');
+  const badge = card ? card.querySelector('.badge') : null;
+  if (badge) badge.outerHTML = '<span class="badge badge-emerald">Confirmed</span>';
+  const actions = btn.parentElement;
+  if (actions) actions.innerHTML = '<button onclick="showToast(\'Match editor coming soon!\', \'info\')" class="btn btn-outline btn-sm">Edit</button>';
+  showToast('Match confirmed with the opposing team.', 'success');
+}
+
+function cancelMatch(btn) {
+  const card = btn.closest('.match-card');
+  if (!card || card.dataset.cancelling) return;
+  card.dataset.cancelling = '1';
+  card.style.transition = 'opacity .35s ease, transform .35s ease';
+  requestAnimationFrame(() => {
+    card.style.opacity = '0';
+    card.style.transform = 'scale(0.97)';
+  });
+  setTimeout(() => card.remove(), 380);
+  showToast('Match cancelled. Teams have been notified.', 'warning');
+}
+
+function resolveInquiry(btn) {
+  const row = btn.closest('[data-action-row]');
+  if (!row || row.dataset.resolving) return;
+  row.dataset.resolving = '1';
+  row.style.transition = 'opacity .35s ease, transform .35s ease';
+  requestAnimationFrame(() => {
+    row.style.opacity = '0';
+    row.style.transform = 'translateX(24px)';
+  });
+  setTimeout(() => row.remove(), 380);
+  showToast('Inquiry marked as resolved.', 'success');
+}
+
+function publishAnnouncement(e) {
+  e.preventDefault();
+  const titleInput = document.getElementById('annTitle');
+  const msgInput = document.getElementById('annMsg');
+  const audience = document.getElementById('annAudience');
+  const title = titleInput.value.trim();
+  const message = msgInput.value.trim();
+  if (!title || !message) {
+    showToast('Please fill in both a title and a message.', 'error');
+    return false;
+  }
+  const list = document.getElementById('announcementList');
+  const item = document.createElement('div');
+  item.className = 'announcement-item';
+  item.style.padding = '20px';
+  item.style.borderColor = 'var(--border-gold)';
+  item.innerHTML = '<div class="announcement-icon" style="background:rgba(201,162,39,0.15);"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></div><div style="flex:1;"><div style="font-family:var(--font-display);font-weight:700;margin-bottom:6px;"></div><p style="font-size:0.85rem;margin:0;"></p></div><span class="badge badge-gold" style="flex-shrink:0;">Just Now</span>';
+  const wrap = item.children[1];
+  wrap.children[0].textContent = title;
+  wrap.children[1].textContent = message + (audience ? ' — Sent to: ' + audience.value : '');
+  list.prepend(item);
+  e.target.reset();
+  showToast('Announcement published successfully!', 'success');
+  return false;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => initProgressBars(), 600);
+});
+</script>
+</body>
+</html>
