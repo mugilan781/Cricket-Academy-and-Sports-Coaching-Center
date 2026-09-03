@@ -211,6 +211,9 @@
 [data-theme="light"] .hero-slider .btn-secondary,
 [data-theme="light"] .footer .btn-secondary,
 [data-theme="light"] .achievements-section .btn-secondary,
+[data-theme="light"] .trial-section .btn-secondary,
+[data-theme="light"] .cta-band .btn-secondary,
+[data-theme="light"] .newsletter-card .btn-secondary,
 [data-theme="light"] .maintenance-page .btn-secondary {
   background: rgba(255, 255, 255, 0.08);
   color: var(--white);
@@ -222,6 +225,9 @@
 [data-theme="light"] .hero-slider .btn-secondary:hover,
 [data-theme="light"] .footer .btn-secondary:hover,
 [data-theme="light"] .achievements-section .btn-secondary:hover,
+[data-theme="light"] .trial-section .btn-secondary:hover,
+[data-theme="light"] .cta-band .btn-secondary:hover,
+[data-theme="light"] .newsletter-card .btn-secondary:hover,
 [data-theme="light"] .maintenance-page .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.18);
   border-color: rgba(255, 255, 255, 0.45);
@@ -232,6 +238,9 @@
 [data-theme="light"] .hero-slider .btn-secondary:active,
 [data-theme="light"] .footer .btn-secondary:active,
 [data-theme="light"] .achievements-section .btn-secondary:active,
+[data-theme="light"] .trial-section .btn-secondary:active,
+[data-theme="light"] .cta-band .btn-secondary:active,
+[data-theme="light"] .newsletter-card .btn-secondary:active,
 [data-theme="light"] .maintenance-page .btn-secondary:active {
   background: rgba(255, 255, 255, 0.3);
   border-color: rgba(255, 255, 255, 0.6);
