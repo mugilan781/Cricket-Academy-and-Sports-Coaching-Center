@@ -111,6 +111,41 @@
 [data-theme="light"] .slider-btn:hover,
 [data-theme="light"] .social-btn:hover { color: var(--white); }
 
+/* Light mode: secondary button visibility & distinct active state */
+[data-theme="light"] .btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1.5px solid rgba(8, 26, 43, 0.2);
+  box-shadow: 0 2px 8px rgba(8, 26, 43, 0.05);
+}
+
+[data-theme="light"] .btn-secondary:hover {
+  background: #FFFFFF;
+  border-color: var(--navy);
+  color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(8, 26, 43, 0.1);
+}
+
+[data-theme="light"] .btn-secondary:active,
+[data-theme="light"] .btn-secondary.active {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 10px rgba(8, 26, 43, 0.3);
+}
+
+[data-theme="light"] .btn-secondary:active svg,
+[data-theme="light"] .btn-secondary.active svg {
+  color: var(--white);
+  stroke: var(--white);
+}
+
+[data-theme="light"] .btn::after {
+  background: rgba(8, 26, 43, 0.05);
+}
+
 [data-theme="light"] .highlight-emerald {
   background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
   -webkit-background-clip: text;
@@ -169,6 +204,38 @@
 [data-theme="light"] .maintenance-page .card-glass {
   background: rgba(255,255,255,0.05);
   border-color: rgba(255,255,255,0.1);
+}
+
+/* Light mode dark containers: preserve dark theme secondary buttons */
+[data-theme="light"] .hero .btn-secondary,
+[data-theme="light"] .hero-slider .btn-secondary,
+[data-theme="light"] .footer .btn-secondary,
+[data-theme="light"] .achievements-section .btn-secondary,
+[data-theme="light"] .maintenance-page .btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: none;
+}
+
+[data-theme="light"] .hero .btn-secondary:hover,
+[data-theme="light"] .hero-slider .btn-secondary:hover,
+[data-theme="light"] .footer .btn-secondary:hover,
+[data-theme="light"] .achievements-section .btn-secondary:hover,
+[data-theme="light"] .maintenance-page .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: var(--white);
+}
+
+[data-theme="light"] .hero .btn-secondary:active,
+[data-theme="light"] .hero-slider .btn-secondary:active,
+[data-theme="light"] .footer .btn-secondary:active,
+[data-theme="light"] .achievements-section .btn-secondary:active,
+[data-theme="light"] .maintenance-page .btn-secondary:active {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.6);
+  color: var(--white);
 }
 
 /* ── Reset ─────────────────────────────────────────── */
@@ -364,6 +431,10 @@ p {
 
 .btn:hover::after { opacity: 1; }
 
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
 .btn-primary {
   background: linear-gradient(135deg, var(--gold), var(--gold-dark));
   color: var(--navy);
@@ -375,6 +446,11 @@ p {
   box-shadow: 0 8px 32px rgba(201,162,39,0.5);
 }
 
+.btn-primary:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 10px rgba(201,162,39,0.4);
+}
+
 .btn-secondary {
   background: rgba(255,255,255,0.05);
   color: var(--text-primary);
@@ -384,8 +460,14 @@ p {
 
 .btn-secondary:hover {
   background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.25);
   transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.45);
+  transform: translateY(1px) scale(0.98);
 }
 
 .btn-emerald {
@@ -399,6 +481,11 @@ p {
   box-shadow: 0 8px 32px rgba(8,127,91,0.4);
 }
 
+.btn-emerald:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 10px rgba(8,127,91,0.4);
+}
+
 .btn-outline {
   background: transparent;
   color: var(--gold);
@@ -409,6 +496,12 @@ p {
   background: var(--gold);
   color: var(--navy);
   transform: translateY(-2px);
+}
+
+.btn-outline:active {
+  background: var(--gold-dark);
+  color: var(--navy);
+  transform: translateY(1px) scale(0.98);
 }
 
 .btn-sm {
