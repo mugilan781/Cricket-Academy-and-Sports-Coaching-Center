@@ -404,6 +404,11 @@
 
 .trial-section { --crimson-light: #FF8B84; }
 .trial-section .form-control::placeholder { color: rgba(247,248,245,0.55); }
+.trial-section form .btn,
+.trial-section form .btn:hover,
+.trial-section form .btn:active {
+  box-shadow: none;
+}
 
 .trial-section::before {
   content: '';
