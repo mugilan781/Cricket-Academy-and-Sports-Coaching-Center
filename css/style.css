@@ -842,6 +842,7 @@ textarea.form-control {
   font-size: 0.82rem;
   font-weight: 500;
   color: var(--text-secondary);
+  white-space: nowrap;
   transition: all var(--t-fast);
 }
 
@@ -849,6 +850,11 @@ textarea.form-control {
   background: rgba(201,162,39,0.08);
   color: var(--gold);
   padding-left: 18px;
+}
+
+[dir="rtl"] .dropdown-item:hover {
+  padding-left: 14px;
+  padding-right: 18px;
 }
 
 .nav-controls {
@@ -898,7 +904,8 @@ textarea.form-control {
   left: auto;
   right: 0;
   transform: translateY(-8px);
-  min-width: 170px;
+  min-width: 210px;
+  width: max-content;
 }
 
 .profile-dropdown .dropdown-menu::before {
@@ -924,6 +931,7 @@ textarea.form-control {
 .profile-dropdown .dropdown-menu .dropdown-item {
   color: var(--text-primary);
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .hamburger {
