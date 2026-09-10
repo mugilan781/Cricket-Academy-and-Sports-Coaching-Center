@@ -2104,7 +2104,7 @@
   flex-direction: column;
 }
 .programs-section .program-card::before {
-  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  display: none;
 }
 .programs-section .program-card .age-badge {
   position: absolute;
