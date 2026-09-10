@@ -1015,9 +1015,15 @@
   top: var(--navbar-h);
   height: calc(100vh - var(--navbar-h));
   overflow-y: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+
+.dashboard-sidebar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 .sidebar-profile {
